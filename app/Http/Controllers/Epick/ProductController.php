@@ -28,12 +28,13 @@ class ProductController extends Controller
                     'price' => $product->price,
                     'image' => $product->image,
                     'project' => $product->project->name,
+                    'category' => $product->category->name,
                 ]),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => request('search') ? Product::where('title', 'like', '%'.request('search').'%')
                 ->get()
-                ->map->only('id', 'title', 'slug', 'price', 'image', 'project.name')
+                ->map->only('id', 'title', 'slug', 'price', 'image')
                 : [],
             'filters' => request()->only(['search'])
         ]);
@@ -66,6 +67,7 @@ class ProductController extends Controller
                 'price' => $product->price,
                 'image' => $product->image,
                 'images' => $product->images,
+                'category' => $product->category->name,
             ]
         ]);
     }
