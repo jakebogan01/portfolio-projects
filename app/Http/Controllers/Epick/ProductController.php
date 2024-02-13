@@ -31,6 +31,11 @@ class ProductController extends Controller
                 ]),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
+            'searchResults' => request('search') ? Product::where('title', 'like', '%'.request('search').'%')
+                ->get()
+                ->map->only('id', 'title', 'slug', 'price', 'image', 'project.name')
+                : [],
+            'filters' => request()->only(['search'])
         ]);
     }
 
