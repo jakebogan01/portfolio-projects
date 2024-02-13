@@ -6,7 +6,7 @@ import { resolve } from 'path';
 const projectRootDir = resolve(__dirname);
 import { homedir } from 'os';
 
-let host = 'portfolio-projects.test'
+let host = 'portfolio-Projects.test'
 
 export default defineConfig({
     plugins: [
