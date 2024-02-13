@@ -2,8 +2,6 @@
     import { Link, page } from "@inertiajs/svelte";
     export let canLogin;
     export let canRegister;
-    export let laravelVersion;
-    export let phpVersion;
 </script>
 
 <svelte:head>
@@ -291,12 +289,6 @@
                         Sponsor
                     </a>
                 </div>
-            </div>
-
-            <div
-                class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0"
-            >
-                Laravel v{laravelVersion} (PHP v{phpVersion})
             </div>
         </div>
     </div>

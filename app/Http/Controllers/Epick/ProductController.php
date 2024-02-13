@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers\Epick;
 
-use App\Http\Controllers\Controller;
+use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Inertia\Inertia;
 
 class ProductController extends Controller
 {
@@ -31,8 +31,6 @@ class ProductController extends Controller
                 ]),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
-            'laravelVersion' => Application::VERSION,
-            'phpVersion' => PHP_VERSION,
         ]);
     }
 

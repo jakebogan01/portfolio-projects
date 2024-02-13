@@ -8,9 +8,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
 use App\Http\Controllers\Epick\ProductController;
 
+require __DIR__ . '/auth.php';
+
 Route::get('/epick', [ProductController::class, 'index'])->name('epick.index');
 Route::get('/epick/products/{product:slug}', [ProductController::class, 'show']);
-
 
 
 Route::get('/dashboard', function () {
