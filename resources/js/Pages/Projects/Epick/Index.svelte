@@ -4,11 +4,22 @@
 
 <script>
     import { Link, page, inertia } from "@inertiajs/svelte";
-    export let canLogin;
-    export let canRegister;
-    export let laravelVersion;
-    export let phpVersion;
+    import Pagination from "@/Components/Epick/Pagination.svelte";
+    import Products from "@/Components/Epick/Products.svelte";
+    /* svelte-ignore unused-export-let */
+    export let errors;
+    /* svelte-ignore unused-export-let */
+    export let auth;
+    /* svelte-ignore unused-export-let */
     export let products;
+    /* svelte-ignore unused-export-let */
+    export let canLogin;
+    /* svelte-ignore unused-export-let */
+    export let canRegister;
+    /* svelte-ignore unused-export-let */
+    export let laravelVersion;
+    /* svelte-ignore unused-export-let */
+    export let phpVersion;
 </script>
 
 <svelte:head>
@@ -46,27 +57,6 @@
     </div>
 {/if}
 
-{#each products?.data as product (product?.id)}
-    <div class="border border-gray-200 rounded p-4 my-2">
-        <h2 class="text-xl">{product?.title}</h2>
-        <p>${@html product?.price}</p>
-        <img src={product?.image} alt="">
-    </div>
-{/each}
+<Products {products} />
 
-<div>
-    <div class="mt-6">
-        {#if products?.prev_page_url === null || products?.prev_page_url === undefined}
-            <span class="px-1">&laquo; Prev</span>
-        {:else}
-            <a use:inertia href="{products?.first_page_url}" class="px-1">First Page</a>
-            <a use:inertia href="{products?.prev_page_url}" class="px-1">&laquo; Prev</a>
-        {/if}
-
-        {#if products?.next_page_url === null || products?.next_page_url === undefined}
-            <span class="px-1">Next &raquo;</span>
-        {:else}
-            <a use:inertia href="{products?.next_page_url}" class="px-1">Next &raquo;</a>
-        {/if}
-    </div>
-</div>
+<Pagination {products} />
