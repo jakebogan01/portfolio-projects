@@ -19,8 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         return Inertia::render('Projects/Epick/Index', [
-            'products' => Product::with('project')
-                ->latest()
+            'products' => Product::latest()
                 ->simplePaginate(6)
                 ->through(fn($product) => [
                     'id' => $product->id,
@@ -56,9 +55,16 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Product $product)
     {
-        //
+        return Inertia::render('Projects/Epick/Show', [
+            'product' => [
+                'title' => $product->title,
+                'price' => $product->price,
+                'image' => $product->image,
+                'images' => $product->images,
+            ]
+        ]);
     }
 
     /**

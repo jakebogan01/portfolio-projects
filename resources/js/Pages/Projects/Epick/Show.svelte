@@ -1,11 +1,15 @@
+<script context="module">
+    export {default as layout} from "../../../Layouts/Epick/MainLayout.svelte";
+</script>
+
 <script>
-    import { inertia } from "@inertiajs/svelte";
+    import Product from "@/Components/Epick/Product.svelte";
     /* svelte-ignore unused-export-let */
     export let errors;
     /* svelte-ignore unused-export-let */
     export let auth;
     /* svelte-ignore unused-export-let */
-    export let products;
+    export let product;
     /* svelte-ignore unused-export-let */
     export let canLogin;
     /* svelte-ignore unused-export-let */
@@ -16,10 +20,11 @@
     export let phpVersion;
 </script>
 
-<nav>
-    <a href="/epick" use:inertia>Home</a>
-</nav>
+<svelte:head>
+    <title>Epick | Product</title>
+</svelte:head>
 
-<h1>Epick main layout</h1>
+<h1>Product | Product</h1>
 
-<slot />
+<Product {product} />
+
