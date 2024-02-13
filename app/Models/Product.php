@@ -16,7 +16,7 @@ class Product extends Model
         'images' => 'array',
     ];
 
-    protected $with = ['project'];
+    protected $with = ['project', 'category'];
 
     /**
      * @return BelongsTo
@@ -24,6 +24,14 @@ class Product extends Model
     public function project(): BelongsTo
     {
         return $this->belongsTo(Project::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
     }
 
 //    $refund = Refund::create([
