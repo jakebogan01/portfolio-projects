@@ -1,25 +1,17 @@
 <?php
 
-use App\Http\Controllers\Epick\ProductController;
-use Illuminate\Foundation\Application;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Application;
+use App\Http\Controllers\Epick\ProductController;
 
 Route::get('/epick', [ProductController::class, 'index'])->name('epick.index');
+Route::get('/epick/products/{product:slug}', [ProductController::class, 'show']);
 
-//Route::get('/', function () {
-//    return Inertia::render('Projects/Epick/Index', [
-//        'canLogin' => Route::has('login'),
-//        'canRegister' => Route::has('register'),
-//        'laravelVersion' => Application::VERSION,
-//        'phpVersion' => PHP_VERSION,
-//    ]);
-//});
 
-require __DIR__ . '/auth.php';
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

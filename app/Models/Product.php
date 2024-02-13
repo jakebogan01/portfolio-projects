@@ -16,6 +16,8 @@ class Product extends Model
         'images' => 'array',
     ];
 
+    protected $with = ['project'];
+
     /**
      * @return BelongsTo
      */
