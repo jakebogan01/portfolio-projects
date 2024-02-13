@@ -18,11 +18,18 @@ class ProductController extends Controller
      */
     public function index()
     {
-        // view pagination results
-        // return Product::latest()->paginate();
-
         return Inertia::render('Projects/Epick/Index', [
-            'products' => Product::latest()->simplePaginate(6),
+            'products' => Product::with('project')
+                ->latest()
+                ->simplePaginate(6)
+                ->through(fn($product) => [
+                    'id' => $product->id,
+                    'title' => $product->title,
+                    'slug' => $product->slug,
+                    'price' => $product->price,
+                    'image' => $product->image,
+                    'project' => $product->project->name,
+                ]),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'laravelVersion' => Application::VERSION,
