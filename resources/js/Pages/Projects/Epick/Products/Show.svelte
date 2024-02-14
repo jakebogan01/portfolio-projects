@@ -1,5 +1,5 @@
 <script context="module">
-    export {default as layout} from "../../../Layouts/Epick/MainLayout.svelte";
+    export {default as layout} from "../../../../Layouts/Epick/MainLayout.svelte";
 </script>
 
 <script>

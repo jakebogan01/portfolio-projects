@@ -5,6 +5,7 @@ namespace Database\Factories;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Project;
+use Exception;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,12 +17,13 @@ class ProductFactory extends Factory
      * Define the model's default state.
      *
      * @return array<string, mixed>
+     * @throws Exception
      */
     public function definition(): array
     {
         return [
             'project_id' => Project::factory(),
-            'category_id' => Category::factory(),
+            'category_id' => random_int(1, 4),
             'title' => fake()->sentence(),
             'slug' => fake()->unique()->slug(),
             'description' => fake()->paragraphs(6, true),

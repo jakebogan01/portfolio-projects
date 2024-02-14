@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers\Epick;
 
+use App\Http\Controllers\Controller;
 use App\Models\Category;
-use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Foundation\Application;
+use Inertia\Inertia;
 
-class ProductController extends Controller
+class AppController extends Controller
 {
     /**
      * Get the search results for the given query.
@@ -31,24 +28,13 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Category $category)
+    public function index()
     {
-        return Inertia::render('Projects/Epick/Products/Index', [
-            'products' => Product::where('category_id', $category->id)
-                ->with('project', 'category')
-                ->simplePaginate(6)
-                ->through(fn($product) => [
-                    'id' => $product->id,
-                    'title' => $product->title,
-                    'slug' => $product->slug,
-                    'price' => $product->price,
-                    'image' => $product->image,
-                    'project' => $product->project->name,
-                    'category' => $product->category->name,
-                ]),
+        return Inertia::render('Projects/Epick/Home/Index', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
+            'categories' => Category::all(),
         ]);
     }
 
@@ -71,18 +57,9 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Request $request)
     {
-        return Inertia::render('Projects/Epick/Products/Show', [
-            'product' => [
-                'title' => $product->title,
-                'price' => $product->price,
-                'image' => $product->image,
-                'images' => $product->images,
-                'category' => $product->category->name,
-            ],
-            'searchResults' => $this->getSearchResults()['searchResults'],
-        ]);
+        //
     }
 
     /**
