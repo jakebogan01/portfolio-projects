@@ -19,6 +19,19 @@ class Product extends Model
     protected $with = ['project', 'category'];
 
     /**
+     * @param $query
+     * @param array $filters
+     * @return void
+     */
+    public function scopeFilter($query, array $filters): void
+    {
+        // if price exists in filters, then query for higher than or equal to price
+        $query->when($filters['price'] ?? false, function ($query, $price) {
+            $query->where('price', '>=', $price);
+        });
+    }
+
+    /**
      * @return BelongsTo
      */
     public function project(): BelongsTo

@@ -20,9 +20,12 @@ class ProductController extends Controller
     public function index(Category $category)
     {
         return Inertia::render('Projects/Epick/Products/Index', [
-            'products' => Product::where('category_id', $category->id)
-                ->with('project', 'category')
+            'products' => Product::query()
+                ->where('category_id', $category->id)
+                ->filter(request(['price']))
+                ->latest()
                 ->simplePaginate(6)
+                ->withQueryString()
                 ->through(fn($product) => [
                     'id' => $product->id,
                     'title' => $product->title,
@@ -35,6 +38,7 @@ class ProductController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
+            'filters' => request()->only(['price']),
         ]);
     }
 
