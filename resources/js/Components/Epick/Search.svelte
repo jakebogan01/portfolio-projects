@@ -1,5 +1,5 @@
 <script>
-    import { inertia } from "@inertiajs/svelte";
+    import { inertia, page } from "@inertiajs/svelte";
     import { router } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
     export let filters;
@@ -12,7 +12,7 @@
     const debounce = v => {
         clearTimeout(timer);
         timer = setTimeout(() => {
-            router.visit('/epick', {
+            router.visit($page?.url, {
                 method: 'get',
                 data: {
                     search: v

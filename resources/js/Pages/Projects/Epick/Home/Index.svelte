@@ -1,33 +1,22 @@
 <script context="module">
-    export {default as layout} from "../../../Layouts/Epick/MainLayout.svelte";
+    export {default as layout} from "../../../../Layouts/Epick/MainLayout.svelte";
 </script>
 
 <script>
-    import { Link, page, inertia, router } from "@inertiajs/svelte";
-    import Pagination from "@/Components/Epick/Pagination.svelte";
-    import Products from "@/Components/Epick/Products.svelte";
-    import Search from "@/Components/Epick/Search.svelte";
+    import { Link, page, inertia } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
-    export let products;
-    /* svelte-ignore unused-export-let */
-    export let filters;
-    /* svelte-ignore unused-export-let */
-    export let searchResults;
+    export let categories;
     /* svelte-ignore unused-export-let */
     export let canLogin;
     /* svelte-ignore unused-export-let */
     export let canRegister;
-
-    $: console.log(searchResults)
 </script>
 
 <svelte:head>
     <title>Epick | Home</title>
 </svelte:head>
 
-<h1>HOME | All Products</h1>
-
-<Search {filters} {searchResults} />
+<h1>HOME</h1>
 
 {#if canLogin}
     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -58,6 +47,14 @@
     </div>
 {/if}
 
-<Products {products} />
-
-<Pagination {products} />
+<div class="space-y-4 mt-5">
+    {#await categories}
+        <p>loading categories...</p>
+    {:then categories}
+        {#each categories as {id, name, slug}, i (id)}
+            <div class="border border-gray-200 rounded p-4 my-2">
+                <a use:inertia href="/epick/products/category/{slug}"><h2 class="text-2xl font-bold">{name}</h2></a>
+            </div>
+        {/each}
+    {/await}
+</div>
