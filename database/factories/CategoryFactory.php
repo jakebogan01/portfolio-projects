@@ -18,6 +18,7 @@ class CategoryFactory extends Factory
     public function definition(): array
     {
         return [
+            'project_id' => random_int(1, 2),
             'name' => fake()->unique()->name(),
             'slug' => fake()->unique()->slug()
         ];

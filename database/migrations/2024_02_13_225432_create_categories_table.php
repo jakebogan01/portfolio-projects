@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('project_id');
             $table->string('name')->unique();
             $table->string('slug')->unique();
         });
