@@ -22,8 +22,12 @@ class Controller extends BaseController
         return [
             'searchResults' => request('search')
                 ?
-                Product::where('title', 'like', '%'.request('search').'%')
-                    ->where('project_id', 1)
+                Product::with('category')
+                ->where('title', 'like', '%'.request('search').'%')
+                ->orWhereHas('category', function ($query) {
+                    $query->where('name', 'like', '%'.request('search').'%');
+                })
+                ->where('project_id', 1)
                 ->get()
                 ->map->only('id', 'title', 'slug', 'price', 'image')
                 : [],
