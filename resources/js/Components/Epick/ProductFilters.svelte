@@ -89,85 +89,24 @@
         <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
         <select id="price" name="price" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
             <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: undefined, price: undefined, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">All</option>
-            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'high', color: filters?.color}, only: ['products', 'filters']}}">Highest Price</option>
-            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'low', color: filters?.color}, only: ['products', 'filters']}}">Lowest Price</option>
+            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'high', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Highest Price</option>
+            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'low', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Lowest Price</option>
             <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'popular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Most Popular</option>
             <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'unpopular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Least Popular</option>
         </select>
     </div>
 
-    <div class="flex space-x-4 mt-4 px-3">
-        {#each colorValues as color, i (color.id)}
-            <div class="flex items-center">
-                <input id={'checkbox'+color.id}  name="color" bind:checked={color.checked} value={color.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                <label for={'checkbox'+color.id} class="ml-3 text-sm text-gray-500">{color.name}</label>
+    <!-- Filters -->
+    {#each [colorValues, sizeValues, genderValues, ageValues, styleValues, brandValues, shapeValues] as values}
+        {#if values.length > 0}
+            <div class="flex space-x-4 mt-4 px-3">
+                {#each values as value (value.id)}
+                    <div class="flex items-center">
+                        <input id={'checkbox'+value.id} name="color" bind:checked={value.checked} value={value.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                        <label for={'checkbox'+value.id} class="ml-3 text-sm text-gray-500">{value.name}</label>
+                    </div>
+                {/each}
             </div>
-        {/each}
-    </div>
-
-    {#if sizeValues.length > 0}
-        <div class="flex space-x-4 mt-4 px-3">
-            {#each sizeValues as size, i (size.id)}
-                <div class="flex items-center">
-                    <input id={'checkbox'+size.id}  name="color" bind:checked={size.checked} value={size.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for={'checkbox'+size.id} class="ml-3 text-sm text-gray-500">{size.name}</label>
-                </div>
-            {/each}
-        </div>
-    {/if}
-
-    {#if genderValues.length > 0}
-        <div class="flex space-x-4 mt-4 px-3">
-            {#each genderValues as gender, i (gender.id)}
-                <div class="flex items-center">
-                    <input id={'checkbox'+gender.id}  name="color" bind:checked={gender.checked} value={gender.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for={'checkbox'+gender.id} class="ml-3 text-sm text-gray-500">{gender.name}</label>
-                </div>
-            {/each}
-        </div>
-    {/if}
-
-    {#if ageValues.length > 0}
-        <div class="flex space-x-4 mt-4 px-3">
-            {#each ageValues as age, i (age.id)}
-                <div class="flex items-center">
-                    <input id={'checkbox'+age.id}  name="color" bind:checked={age.checked} value={age.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for={'checkbox'+age.id} class="ml-3 text-sm text-gray-500">{age.name}</label>
-                </div>
-            {/each}
-        </div>
-    {/if}
-
-    {#if styleValues.length > 0}
-        <div class="flex space-x-4 mt-4 px-3">
-            {#each styleValues as style, i (style.id)}
-                <div class="flex items-center">
-                    <input id={'checkbox'+style.id}  name="color" bind:checked={style.checked} value={style.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for={'checkbox'+style.id} class="ml-3 text-sm text-gray-500">{style.name}</label>
-                </div>
-            {/each}
-        </div>
-    {/if}
-
-    {#if brandValues.length > 0}
-        <div class="flex space-x-4 mt-4 px-3">
-            {#each brandValues as brand, i (brand.id)}
-                <div class="flex items-center">
-                    <input id={'checkbox'+brand.id}  name="color" bind:checked={brand.checked} value={brand.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for={'checkbox'+brand.id} class="ml-3 text-sm text-gray-500">{brand.name}</label>
-                </div>
-            {/each}
-        </div>
-    {/if}
-
-    {#if shapeValues.length > 0}
-        <div class="flex space-x-4 mt-4 px-3">
-            {#each shapeValues as shape, i (shape.id)}
-                <div class="flex items-center">
-                    <input id={'checkbox'+shape.id}  name="color" bind:checked={shape.checked} value={shape.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                    <label for={'checkbox'+shape.id} class="ml-3 text-sm text-gray-500">{shape.name}</label>
-                </div>
-            {/each}
-        </div>
-    {/if}
+        {/if}
+    {/each}
 </form>
