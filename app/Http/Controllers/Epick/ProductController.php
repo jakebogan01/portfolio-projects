@@ -23,7 +23,7 @@ class ProductController extends Controller
             'products' => Product::query()
                 ->where('category_id', $category->id)
                 ->where('project_id', 1)
-                ->filter(request(['price', 'color']))
+                ->filter(request(['price', 'color', 'size']))
                 ->latest()
                 ->simplePaginate(6)
                 ->withQueryString()
@@ -41,7 +41,7 @@ class ProductController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
-            'filters' => request()->only(['price', 'color']),
+            'filters' => request()->only(['price', 'color', 'size']),
         ]);
     }
 

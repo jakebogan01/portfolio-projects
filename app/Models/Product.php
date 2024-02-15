@@ -38,6 +38,11 @@ class Product extends Model
             $colors = explode(',', $filters['color']);
             $query->whereIn('color', $colors);
         }
+
+        if (isset($filters['size'])) {
+            $sizes = explode(',', $filters['size']);
+            $query->whereIn('size', $sizes);
+        }
     }
 
     /**
