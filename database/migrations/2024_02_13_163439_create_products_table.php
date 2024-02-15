@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('image');
             $table->json('images');
             $table->string('color');
-            $table->string('size');
+            $table->string('size')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

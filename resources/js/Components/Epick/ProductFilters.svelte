@@ -7,17 +7,30 @@
     export let filters;
     $: filters = $page.props.filters;
 
+    const filterValues = (filterValue, array) => {
+        filterValue.forEach((value, i) => {
+            array.push({id: i, name: value, 'checked': false});
+        });
+    }
+
+    // Color filter
     let colorValues = [];
     let filteredColorValues;
-    products?.data?.forEach((product, i) => {
-        colorValues.push({id: i, name: product.color, 'checked': false});
-    });
+    filterValues(products?.data?.map(product => product.color) ?? [], colorValues);
     $: filteredColorValues = colorValues.filter(color => color.checked).map(color => color.name).join(',');
-    const handleColorFilterRequest = () => {
+
+    // Size filter
+    let sizeValues = [];
+    let filteredSizeValues;
+    filterValues(products?.data?.map(product => product.size) ?? [], sizeValues);
+    $: filteredSizeValues = sizeValues.filter(size => size.checked).map(size => size.name).join(',');
+    sizeValues = sizeValues.filter(size => size.name !== null);
+
+    const handleFilterRequest = (filterType, filterValue) => {
         router.visit($page?.url, {
             method: 'get',
             data: {
-                color: filteredColorValues.length !== 0 ? filteredColorValues : undefined,
+                [filterType]: filterValue,
                 price: filters?.price
             },
             replace: true,
@@ -41,9 +54,20 @@
     <div class="flex space-x-4 mt-4 px-3">
         {#each colorValues as color, i (color.id)}
             <div class="flex items-center">
-                <input id={'checkbox'+color.id}  name="color" bind:checked={color.checked} value={color.name} on:change={handleColorFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                <input id={'checkbox'+color.id}  name="color" bind:checked={color.checked} value={color.name} on:change={()=>{handleFilterRequest('color', filteredColorValues.length !== 0 ? filteredColorValues : undefined)}} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
                 <label for={'checkbox'+color.id} class="ml-3 text-sm text-gray-500">{color.name}</label>
             </div>
         {/each}
     </div>
+
+    {#if sizeValues.length > 0}
+        <div class="flex space-x-4 mt-4 px-3">
+            {#each sizeValues as size, i (size.id)}
+                <div class="flex items-center">
+                    <input id={'checkbox'+size.id}  name="color" bind:checked={size.checked} value={size.name} on:change={()=>{handleFilterRequest('size', filteredSizeValues.length !== 0 ? filteredSizeValues : undefined)}} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
+                    <label for={'checkbox'+size.id} class="ml-3 text-sm text-gray-500">{size.name}</label>
+                </div>
+            {/each}
+        </div>
+    {/if}
 </form>

@@ -35,6 +35,7 @@ class ProductController extends Controller
                     'project' => $product->project->name,
                     'category' => $product->category->name,
                     'color' => $product->color,
+                    'size' => $product->size,
                 ]),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
