@@ -9,6 +9,8 @@
     import ProductFilters from "@/Components/Epick/ProductFilters.svelte";
     /* svelte-ignore unused-export-let */
     export let products;
+    /* svelte-ignore unused-export-let */
+    export let filters;
 </script>
 
 <svelte:head>
@@ -17,7 +19,7 @@
 
 <h1>Category Products</h1>
 
-<ProductFilters />
+<ProductFilters {products} {filters} />
 
 <Products {products} />
 

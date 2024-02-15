@@ -22,7 +22,7 @@ class ProductController extends Controller
         return Inertia::render('Projects/Epick/Products/Index', [
             'products' => Product::query()
                 ->where('category_id', $category->id)
-                ->filter(request(['price']))
+                ->filter(request(['price', 'color']))
                 ->latest()
                 ->simplePaginate(6)
                 ->withQueryString()
@@ -34,11 +34,12 @@ class ProductController extends Controller
                     'image' => $product->image,
                     'project' => $product->project->name,
                     'category' => $product->category->name,
+                    'color' => $product->color,
                 ]),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
-            'filters' => request()->only(['price']),
+            'filters' => request()->only(['price', 'color']),
         ]);
     }
 

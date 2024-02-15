@@ -8,13 +8,14 @@
     {#await products?.data}
         <p>loading products...</p>
     {:then products}
-        {#each products as { id, title, slug, image, price, project, category }, i (id)}
+        {#each products as { id, title, slug, image, price, project, category, color }, i (id)}
             <div class="border border-gray-200 rounded p-4 my-2">
                 <a use:inertia href="/epick/products/{slug}"><h2 class="text-2xl font-bold pb-3">{title}</h2></a>
                 <p>${price}</p>
                 <img src={image} alt="" class="w-[50px]">
                 <p><b>Project:</b> {project}</p>
                 <p><b>Category:</b> {category}</p>
+                <p><b>Color:</b> {color}</p>
                 <a use:inertia href="/epick/products/{slug}" class="inline-block mt-2 text-blue-500 border border-gray-200 px-4 py-1 rounded-lg bg-white">view</a>
             </div>
         {/each}
