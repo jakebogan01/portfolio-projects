@@ -2,11 +2,11 @@
     import { inertia, page } from "@inertiajs/svelte";
     import { router } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
-    export let filters;
-    /* svelte-ignore unused-export-let */
     export let searchResults;
+    /* svelte-ignore unused-export-let */
+    export let searchFilters;
 
-    let search = filters?.search || '';
+    let search = searchFilters?.search || '';
     let timer;
 
     const debounce = v => {

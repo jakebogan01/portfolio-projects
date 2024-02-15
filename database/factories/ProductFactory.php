@@ -33,7 +33,9 @@ class ProductFactory extends Factory
                 'https://picsum.photos/500.jpg',
                 'https://picsum.photos/500.jpg',
             ],
-            'price' => fake()->randomFloat('2', 0, 500)
+            'price' => fake()->randomFloat('2', 0, 500),
+            'color' => fake()->colorName(),
+            'size' => fake()->randomElement(['S', 'M', 'L', 'XL']),
         ];
     }
 }

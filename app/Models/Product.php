@@ -19,6 +19,29 @@ class Product extends Model
     protected $with = ['project', 'category'];
 
     /**
+     * @param $query
+     * @param array $filters
+     * @return void
+     */
+    public function scopeFilter($query, array $filters): void
+    {
+        if (isset($filters['price'])) {
+            $price = $filters['price'];
+            if ($price === 'high') {
+                $query->orderBy('price', 'desc');
+            } elseif ($price === 'low') {
+                $query->orderBy('price', 'asc');
+            }
+        }
+
+        // filters color is string of colors separated by comma (red,blue,green), so we need to convert it to array of colors ['red', 'blue', 'green'] to use it in whereIn clause
+        if (isset($filters['color'])) {
+            $colors = explode(',', $filters['color']);
+            $query->whereIn('color', $colors);
+        }
+    }
+
+    /**
      * @return BelongsTo
      */
     public function project(): BelongsTo

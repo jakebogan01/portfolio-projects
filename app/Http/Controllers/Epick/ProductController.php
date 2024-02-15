@@ -15,28 +15,17 @@ use Illuminate\Foundation\Application;
 class ProductController extends Controller
 {
     /**
-     * Get the search results for the given query.
-     */
-    public function getSearchResults()
-    {
-        return [
-            'searchResults' => request('search') ? Product::where('title', 'like', '%'.request('search').'%')
-                ->get()
-                ->map->only('id', 'title', 'slug', 'price', 'image')
-                : [],
-            'filters' => request()->only(['search']),
-        ];
-    }
-
-    /**
      * Display a listing of the resource.
      */
     public function index(Category $category)
     {
         return Inertia::render('Projects/Epick/Products/Index', [
-            'products' => Product::where('category_id', $category->id)
-                ->with('project', 'category')
+            'products' => Product::query()
+                ->where('category_id', $category->id)
+                ->filter(request(['price', 'color']))
+                ->latest()
                 ->simplePaginate(6)
+                ->withQueryString()
                 ->through(fn($product) => [
                     'id' => $product->id,
                     'title' => $product->title,
@@ -45,10 +34,13 @@ class ProductController extends Controller
                     'image' => $product->image,
                     'project' => $product->project->name,
                     'category' => $product->category->name,
+                    'color' => $product->color,
+                    'size' => $product->size,
                 ]),
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
+            'filters' => request()->only(['price', 'color']),
         ]);
     }
 

@@ -21,6 +21,8 @@ return new class extends Migration
             $table->decimal('price', 10, 2);
             $table->string('image');
             $table->json('images');
+            $table->string('color');
+            $table->string('size')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -6,11 +6,11 @@
     import Pagination from "@/Components/Epick/Pagination.svelte";
     import Products from "@/Components/Epick/Products.svelte";
     import Search from "@/Components/Epick/Search.svelte";
+    import ProductFilters from "@/Components/Epick/ProductFilters.svelte";
     /* svelte-ignore unused-export-let */
     export let products;
-    export let canLogin;
     /* svelte-ignore unused-export-let */
-    export let canRegister;
+    export let filters;
 </script>
 
 <svelte:head>
@@ -18,6 +18,8 @@
 </svelte:head>
 
 <h1>Category Products</h1>
+
+<ProductFilters {products} {filters} />
 
 <Products {products} />
 

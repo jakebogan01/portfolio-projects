@@ -12,20 +12,6 @@ use Inertia\Inertia;
 class AppController extends Controller
 {
     /**
-     * Get the search results for the given query.
-     */
-    public function getSearchResults()
-    {
-        return [
-            'searchResults' => request('search') ? Product::where('title', 'like', '%'.request('search').'%')
-                ->get()
-                ->map->only('id', 'title', 'slug', 'price', 'image')
-                : [],
-            'filters' => request()->only(['search']),
-        ];
-    }
-
-    /**
      * Display a listing of the resource.
      */
     public function index()
