@@ -23,6 +23,12 @@ return new class extends Migration
             $table->json('images');
             $table->string('color');
             $table->string('size')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('age')->nullable();
+            $table->string('style')->nullable();
+            $table->string('brand')->nullable();
+            $table->string('shape')->nullable();
+            $table->string('rating')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
