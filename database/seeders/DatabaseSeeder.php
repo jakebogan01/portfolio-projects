@@ -46,5 +46,8 @@ class DatabaseSeeder extends Seeder
         ])->products()->createMany(
             Product::factory()->count(30)->make()->toArray()
         );
+
+        // if any products has a category_id of 4 make size null
+        Product::where('category_id', 4)->update(['size' => null]);
     }
 }
