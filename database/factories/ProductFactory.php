@@ -36,6 +36,12 @@ class ProductFactory extends Factory
             'price' => fake()->randomFloat('2', 0, 500),
             'color' => fake()->colorName(),
             'size' => fake()->randomElement(['S', 'M', 'L', 'XL']),
+            'gender' => fake()->randomElement(['Male', 'Female']),
+            'age' => fake()->randomElement(['Adult', 'Child', 'Infant']),
+            'style' => fake()->randomElement(['Boots', 'Slippers', 'Flats', 'Sneakers']),
+            'brand' => fake()->company(),
+            'shape' => fake()->randomElement(['Round', 'Square', 'Oval', 'Rectangle']),
+            'rating' => fake()->randomFloat('1', 1, 5),
         ];
     }
 }

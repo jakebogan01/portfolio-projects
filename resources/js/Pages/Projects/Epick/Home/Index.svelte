@@ -5,11 +5,7 @@
 <script>
     import { Link, page, inertia } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
-    export let categories;
-    /* svelte-ignore unused-export-let */
-    export let canLogin;
-    /* svelte-ignore unused-export-let */
-    export let canRegister;
+    export let categories, canLogin, canRegister;
 </script>
 
 <svelte:head>

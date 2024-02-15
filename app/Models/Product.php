@@ -34,15 +34,24 @@ class Product extends Model
             }
         }
 
-        if (isset($filters['color'])) {
-            $colors = explode(',', $filters['color']);
-            $query->whereIn('color', $colors);
+        if (isset($filters['rating'])) {
+            $rating = $filters['rating'];
+            if ($rating === 'popular') {
+                $query->orderBy('rating', 'desc');
+            } elseif ($rating === 'unpopular') {
+                $query->orderBy('rating', 'asc');
+            }
         }
 
-        if (isset($filters['size'])) {
-            $sizes = explode(',', $filters['size']);
-            $query->whereIn('size', $sizes);
+        $filtersToApply = ['color', 'size', 'gender', 'age', 'style', 'brand', 'shape'];
+
+        foreach ($filtersToApply as $filterKey) {
+            if (isset($filters[$filterKey])) {
+                $values = explode(',', $filters[$filterKey]);
+                $query->whereIn($filterKey, $values);
+            }
         }
+
     }
 
     /**

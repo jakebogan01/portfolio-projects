@@ -2,9 +2,7 @@
     import { inertia } from "@inertiajs/svelte";
     import Search from "@/Components/Epick/Search.svelte";
     /* svelte-ignore unused-export-let */
-    export let searchResults;
-    /* svelte-ignore unused-export-let */
-    export let searchFilters;
+    export let searchResults, searchFilters;
 </script>
 
 <nav>
