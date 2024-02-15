@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Project;
 use Str;
 use App\Models\User;
 use App\Models\Product;
@@ -33,6 +34,16 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        Product::factory(30)->create();
+        Project::factory()->create([
+            'name' => 'Epick',
+        ])->products()->createMany(
+            Product::factory()->count(30)->make()->toArray()
+        );
+
+        Project::factory()->create([
+            'name' => 'Project 2',
+        ])->products()->createMany(
+            Product::factory()->count(30)->make()->toArray()
+        );
     }
 }
