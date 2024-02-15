@@ -20,7 +20,10 @@ class Controller extends BaseController
     public function getSearchResults()
     {
         return [
-            'searchResults' => request('search') ? Product::where('title', 'like', '%'.request('search').'%')
+            'searchResults' => request('search')
+                ?
+                Product::where('title', 'like', '%'.request('search').'%')
+                    ->where('project_id', 1)
                 ->get()
                 ->map->only('id', 'title', 'slug', 'price', 'image')
                 : [],

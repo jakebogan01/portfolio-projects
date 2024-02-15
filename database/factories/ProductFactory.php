@@ -22,7 +22,7 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
-            'project_id' => Project::factory(),
+            'project_id' => random_int(1, 2),
             'category_id' => random_int(1, 4),
             'title' => fake()->sentence(),
             'slug' => fake()->unique()->slug(),

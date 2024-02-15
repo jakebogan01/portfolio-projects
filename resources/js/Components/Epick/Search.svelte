@@ -15,7 +15,7 @@
             router.visit($page?.url, {
                 method: 'get',
                 data: {
-                    search: v
+                    search: v.length !== 0 ? v : undefined
                 },
                 replace: true,
                 preserveState: true,

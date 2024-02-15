@@ -20,7 +20,7 @@ class AppController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
-            'categories' => Category::all(),
+            'categories' => Category::where('project_id', 1)->get(),
         ]);
     }
 
