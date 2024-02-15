@@ -38,10 +38,7 @@ class DatabaseSeeder extends Seeder
         Project::factory()->create([
             'name' => 'Epick',
         ])->products()->createMany(
-            Product::factory()->count(30)->make([
-                'category_id' => Category::where('name', 'Furniture')->first()->id,
-                'size' => null,
-            ])->toArray()
+            Product::factory()->count(30)->make()->toArray()
         );
 
         Project::factory()->create([
