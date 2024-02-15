@@ -8,9 +8,7 @@
     import Search from "@/Components/Epick/Search.svelte";
     import ProductFilters from "@/Components/Epick/ProductFilters.svelte";
     /* svelte-ignore unused-export-let */
-    export let products;
-    /* svelte-ignore unused-export-let */
-    export let filters;
+    export let products, filters;
 </script>
 
 <svelte:head>

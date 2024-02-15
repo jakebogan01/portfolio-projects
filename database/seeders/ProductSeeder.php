@@ -35,9 +35,9 @@ class ProductSeeder extends Seeder
             ->whereIn('category_id', [1, 4])
             ->update(['gender' => null, 'age' => null]);
 
-        // Update products with project_id of 1 to have null style where category_id is 1, 3 or 4
+        // Update products with project_id of 1 to have null style where category_id is 1, 2 or 4
         Product::where('project_id', 1)
-            ->whereIn('category_id', [1, 3, 4])
+            ->whereIn('category_id', [1, 2, 4])
             ->update(['style' => null]);
 
         // Update products with project_id of 1 to have null shape where category_id is 1, 2 or 3
