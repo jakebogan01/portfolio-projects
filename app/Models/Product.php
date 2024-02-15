@@ -25,10 +25,14 @@ class Product extends Model
      */
     public function scopeFilter($query, array $filters): void
     {
-        // if price exists in filters, then query for higher than or equal to price
-        $query->when($filters['price'] ?? false, function ($query, $price) {
-            $query->where('price', '>=', $price);
-        });
+        if (isset($filters['price'])) {
+            $price = $filters['price'];
+            if ($price === 'high') {
+                $query->orderBy('price', 'desc');
+            } elseif ($price === 'low') {
+                $query->orderBy('price', 'asc');
+            }
+        }
     }
 
     /**
