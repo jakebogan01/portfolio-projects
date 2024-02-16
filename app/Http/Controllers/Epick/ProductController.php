@@ -77,11 +77,15 @@ class ProductController extends Controller
             } else {
                 auth()->user()->cart->products()->attach($request->product['id'], ['quantity' => 1]);
             }
-            auth()->user()->cart()->update(['quantity' => auth()->user()->cart->products()->where('product_id', $request->product['id'])->first()->pivot->quantity + 1]);
+            auth()->user()->cart()->update([
+                'quantity' => auth()->user()->cart->products()->where('product_id', $request->product['id'])->first()->pivot->quantity,
+                'total_price' => auth()->user()->cart->total_price + (float) $request->product['price'],
+            ]);
         } else {
             auth()->user()->cart()->create([
                 'user_id' => auth()->user()->id,
                 'quantity' => 1,
+                'total_price' => (float) $request->product['price'],
             ])->products()->attach($request->product['id'], ['quantity' => 1]);
         }
 
@@ -133,9 +137,24 @@ class ProductController extends Controller
         if (!auth()->user()->cart->products()->where('product_id', $product->id)->exists()) {
             return redirect()->back()->with('message', 'Item not found in cart!');
         }
-        auth()->user()->cart()->update(['quantity' => auth()->user()->cart->quantity - auth()->user()->cart->products()->where('product_id', $product->id)->first()->pivot->quantity]);
+
+        $productPrice = (float) $product->price;
+
+        auth()->user()->cart()->update([
+            'quantity' => auth()->user()->cart->quantity - auth()->user()->cart->products()->where('product_id', $product->id)->first()->pivot->quantity,
+            'total_price' => auth()->user()->cart->total_price - (float) $product->price,
+        ]);
         auth()->user()->cart->products()->detach($product->id);
 
-        return redirect()->back()->with('message', 'Item removed from cart!');
+        if (!auth()->user()->cart->products()->where('product_id', $product->id)->exists()) {
+            $cartQuantity = auth()->user()->cart->quantity;
+            $cartTotalPrice = $cartQuantity * $productPrice;
+            auth()->user()->cart()->update([
+                'total_price' => auth()->user()->cart->total_price - $cartTotalPrice,
+            ]);
+        }
+
+
+        return redirect()->route('epick.checkout')->with('message', 'Item removed from cart!');
     }
 }

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->integer('quantity');
+            $table->decimal('total_price', 10, 2)->default(0.00);
             $table->timestamps();
         });
     }

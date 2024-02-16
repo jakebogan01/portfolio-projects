@@ -21,6 +21,7 @@ class CartFactory extends Factory
         return [
             'user_id' => 1,
             'quantity' => random_int(1, 10),
+            'total_price' => random_int(100, 1000),
         ];
     }
 }
