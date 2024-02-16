@@ -22,8 +22,7 @@ class Controller extends BaseController
         return [
             'searchResults' => request('search')
                 ?
-                Product::with('category')
-                ->where('title', 'like', '%'.request('search').'%')
+                Product::where('title', 'like', '%'.request('search').'%')
                 ->orWhereHas('category', function ($query) {
                     $query->where('name', 'like', '%'.request('search').'%');
                 })
