@@ -154,7 +154,6 @@ class ProductController extends Controller
             ]);
         }
 
-
         return redirect()->route('epick.checkout')->with('message', 'Item removed from cart!');
     }
 }
