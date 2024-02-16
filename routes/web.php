@@ -18,6 +18,7 @@ Route::get('/epick/checkout', CheckoutController::class)->name('checkout');
 Route::controller(ProductController::class)->name('products.')->prefix('epick/products')->group(function () {
     Route::get('/category/{category:slug}', 'index')->name('index');
     Route::get('/{product:slug}', 'show')->name('show');
+    Route::post('/cart/add', 'store')->name('store');
 });
 
 Route::get('/dashboard', function () {

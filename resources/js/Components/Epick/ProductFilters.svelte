@@ -1,6 +1,5 @@
 <script>
-    import { inertia, page } from "@inertiajs/svelte";
-    import { router } from "@inertiajs/svelte";
+    import { inertia, page, router } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
     export let products, filters;
     $: filters = $page.props.filters;

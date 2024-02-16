@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Epick;
 
 use App\Models\Category;
+use Illuminate\Database\Eloquent\Model;
 use Inertia\Inertia;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -64,7 +65,28 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+// delete       auth()->user()->cart->products()->detach($request->product['id']);
+        if (!Product::find($request->product['id'])) {
+            return redirect()->route('home')->with('message', 'Item not found!');
+        }
+
+        if (auth()->user()->cart) {
+            if (auth()->user()->cart->products()->where('product_id', $request->product['id'])->exists()) {
+                auth()->user()->cart->products()->updateExistingPivot($request->product['id'], [
+                    'quantity' => auth()->user()->cart->products()->where('product_id', $request->product['id'])->first()->pivot->quantity + 1
+                ]);
+            } else {
+                auth()->user()->cart->products()->attach($request->product['id'], ['quantity' => 1]);
+            }
+            auth()->user()->cart()->update(['quantity' => auth()->user()->cart->products()->where('product_id', $request->product['id'])->first()->pivot->quantity + 1]);
+        } else {
+            auth()->user()->cart()->create([
+                'user_id' => auth()->user()->id,
+                'quantity' => 1,
+            ])->products()->attach($request->product['id'], ['quantity' => 1]);
+        }
+
+        return redirect()->back()->with('message', 'Saved to cart!');
     }
 
     /**
@@ -77,6 +99,7 @@ class ProductController extends Controller
         }
         return Inertia::render('Projects/Epick/Products/Show', [
             'product' => [
+                'id' => $product->id,
                 'title' => $product->title,
                 'price' => $product->price,
                 'image' => $product->image,

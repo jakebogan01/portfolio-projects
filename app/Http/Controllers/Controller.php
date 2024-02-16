@@ -45,7 +45,7 @@ class Controller extends BaseController
         return [
             'cartQuantity' => $request->user()
                 ?
-                $request->user()->cart->products->count() > 0
+                $request->user()->cart && $request->user()->cart->products->count() > 0
                     ?
                     [
                         'quantity' => $request->user()->cart->quantity,
@@ -55,9 +55,6 @@ class Controller extends BaseController
                                 'title' => $product->title,
                                 'price' => $product->price,
                                 'image' => $product->image,
-                                'pivot' => [
-                                    'quantity' => $product->pivot->quantity,
-                                ],
                             ];
                         }),
                     ]
