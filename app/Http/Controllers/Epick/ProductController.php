@@ -23,7 +23,7 @@ class ProductController extends Controller
         return Inertia::render('Projects/Epick/Products/Index', [
             'products' => Product::query()
                 ->where('category_id', $category->id)
-                ->where('project_id', 1)
+                ->where('project_id', config('enums.projects')['epick'])
                 ->filter(request(['price', 'color', 'size', 'gender', 'age', 'style', 'brand', 'shape', 'rating']))
                 ->latest()
                 ->simplePaginate(6)
@@ -93,7 +93,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        if ($product->project_id !== 1) {
+        if ($product->project_id !== config('enums.projects')['epick']) {
             abort(404);
         }
         return Inertia::render('Projects/Epick/Products/Show', [

@@ -27,7 +27,7 @@ class Controller extends BaseController
                 ->orWhereHas('category', function ($query) {
                     $query->where('name', 'like', '%'.request('search').'%');
                 })
-                ->where('project_id', 1)
+                ->where('project_id', config('enums.projects')['epick'])
                 ->get()
                 ->map->only('id', 'title', 'slug', 'price', 'image')
                 : [],
