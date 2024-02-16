@@ -54,11 +54,11 @@
     {#await cartQuantity?.products}
         <p>loading categories...</p>
     {:then products}
-        {#each products as {id, title, price, image, pivot}, i (id)}
+        {#each products as {id, title, price, image, quantity}, i (id)}
             <div class="flex border border-gray-200 rounded p-4 my-2">
                 <h2 class="text-2xl font-bold">{title}</h2>
-                {#if pivot?.quantity > 1}
-                    <p class="text-sm text-gray-500">x{pivot?.quantity}</p>
+                {#if quantity > 1}
+                    <p class="text-sm text-gray-500">x{quantity}</p>
                 {/if}
             </div>
         {/each}
