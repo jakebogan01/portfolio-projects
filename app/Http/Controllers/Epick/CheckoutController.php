@@ -3,23 +3,21 @@
 namespace App\Http\Controllers\Epick;
 
 use Inertia\Inertia;
-use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-class AppController extends Controller
+class CheckoutController extends Controller
 {
     /**
      * Handle the incoming request.
      */
     public function __invoke(Request $request)
     {
-        return Inertia::render('Projects/Epick/Home/Index', [
+        return Inertia::render('Projects/Epick/Checkout/Index', [
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
-            'categories' => Category::where('project_id', 1)->get(),
             'cartQuantity' => $this->getCartQuantity($request)['cartQuantity'],
         ]);
     }

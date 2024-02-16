@@ -17,4 +17,12 @@ class Project extends Model
     {
         return $this->hasMany(Product::class);
     }
+
+    /**
+     * @return HasMany
+     */
+    public function carts(): HasMany
+    {
+        return $this->hasMany(Cart::class);
+    }
 }

@@ -5,7 +5,6 @@
 <script>
     import Pagination from "@/Components/Epick/Pagination.svelte";
     import Products from "@/Components/Epick/Products.svelte";
-    import Search from "@/Components/Epick/Search.svelte";
     import ProductFilters from "@/Components/Epick/ProductFilters.svelte";
     /* svelte-ignore unused-export-let */
     export let products, filters;

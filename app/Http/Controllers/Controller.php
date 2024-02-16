@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
@@ -31,6 +32,41 @@ class Controller extends BaseController
                 ->map->only('id', 'title', 'slug', 'price', 'image')
                 : [],
             'searchFilters' => request()->only(['search']),
+        ];
+    }
+
+    /**
+     * Get search results.
+     *
+     * @return array
+     */
+    public function getCartQuantity(Request $request)
+    {
+        return [
+            'cartQuantity' => $request->user()
+                ?
+                $request->user()->cart && $request->user()->cart->products->count() > 0
+                    ?
+                    [
+                        'quantity' => $request->user()->cart->quantity,
+                        'products' => $request->user()->cart->products->map(function ($product) {
+                            return [
+                                'id' => $product->id,
+                                'title' => $product->title,
+                                'slug' => $product->slug,
+                                'price' => $product->price,
+                                'image' => $product->image,
+                                'quantity' => $product->pivot->quantity,
+                            ];
+                        }),
+                    ]
+                    :
+                    [
+                        'quantity' => 0,
+                        'products' => [],
+                    ]
+                :
+                null,
         ];
     }
 }
