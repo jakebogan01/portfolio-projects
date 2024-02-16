@@ -55,6 +55,9 @@ class Controller extends BaseController
                                 'title' => $product->title,
                                 'price' => $product->price,
                                 'image' => $product->image,
+                                'pivot' => [
+                                    'quantity' => $product->pivot->quantity,
+                                ],
                             ];
                         }),
                     ]
