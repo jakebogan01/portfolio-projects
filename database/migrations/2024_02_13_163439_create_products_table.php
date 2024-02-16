@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('brand')->nullable();
             $table->string('shape')->nullable();
             $table->string('rating')->nullable();
+            $table->boolean('is_featured')->default(false);
             $table->timestamps();
             $table->softDeletes();
         });

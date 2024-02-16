@@ -42,6 +42,7 @@ class ProductFactory extends Factory
             'brand' => fake()->company(),
             'shape' => fake()->randomElement(['Round', 'Square', 'Oval', 'Rectangle']),
             'rating' => fake()->randomFloat('1', 1, 5),
+            'is_featured' => fake()->boolean()
         ];
     }
 }
