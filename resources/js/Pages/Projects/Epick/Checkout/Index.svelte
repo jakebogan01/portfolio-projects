@@ -3,15 +3,33 @@
 </script>
 
 <script>
-    import { Link, page, inertia } from "@inertiajs/svelte";
+    import { Link, page, inertia, router } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
-    export let canLogin, canRegister, cartQuantity;
+    export let canLogin, canRegister, cartQuantity, flash;
     $: console.log(cartQuantity)
+
+    const handleBuyProduct = (productId) => {
+        const product = cartQuantity.products.filter(product => product.id === productId);
+
+        router.delete(`/epick/products/cart/remove/${product[0]?.id}`, {
+            method: 'delete',
+            data: {
+                product: product[0]
+            },
+            replace: true,
+            preserveState: true,
+            preserveScroll: true,
+        });
+    }
 </script>
 
 <svelte:head>
     <title>Epick | Checkout</title>
 </svelte:head>
+
+{#if flash.message}
+    <div class="text-center text-blue-500 dark:text-blue-400 font-bold pb-4">{flash.message}</div>
+{/if}
 
 {#if cartQuantity?.quantity > 0}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
@@ -55,11 +73,16 @@
         <p>loading categories...</p>
     {:then products}
         {#each products as {id, title, price, image, quantity}, i (id)}
-            <div class="flex border border-gray-200 rounded p-4 my-2">
-                <h2 class="text-2xl font-bold">{title}</h2>
-                {#if quantity > 1}
-                    <p class="text-sm text-gray-500">x{quantity}</p>
-                {/if}
+            <div class="flex justify-between border border-gray-200 rounded p-4 my-2">
+                <div class="lex">
+                    <h2 class="text-2xl font-bold">{title}</h2>
+                    {#if quantity > 1}
+                        <p class="text-sm text-gray-500">x{quantity}</p>
+                    {/if}
+                </div>
+                <form on:submit|preventDefault>
+                    <button type="submit" on:click={()=>{handleBuyProduct(id)}} class="bg-red-400 py-1 px-5 text-white rounded-sm">remove</button>
+                </form>
             </div>
         {/each}
     {/await}

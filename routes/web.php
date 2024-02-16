@@ -19,6 +19,7 @@ Route::controller(ProductController::class)->name('products.')->prefix('epick/pr
     Route::get('/category/{category:slug}', 'index')->name('index');
     Route::get('/{product:slug}', 'show')->name('show');
     Route::post('/cart/add', 'store')->name('store');
+    Route::delete('/cart/remove/{product}', 'destroy')->name('destroy');
 });
 
 Route::get('/dashboard', function () {

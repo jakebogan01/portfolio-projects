@@ -53,6 +53,7 @@ class Controller extends BaseController
                             return [
                                 'id' => $product->id,
                                 'title' => $product->title,
+                                'slug' => $product->slug,
                                 'price' => $product->price,
                                 'image' => $product->image,
                                 'quantity' => $product->pivot->quantity,

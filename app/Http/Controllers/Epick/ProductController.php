@@ -65,7 +65,6 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-// delete       auth()->user()->cart->products()->detach($request->product['id']);
         if (!Product::find($request->product['id'])) {
             return redirect()->route('home')->with('message', 'Item not found!');
         }
@@ -129,8 +128,14 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Product $product)
     {
-        //
+        if (!auth()->user()->cart->products()->where('product_id', $product->id)->exists()) {
+            return redirect()->back()->with('message', 'Item not found in cart!');
+        }
+        auth()->user()->cart()->update(['quantity' => auth()->user()->cart->quantity - auth()->user()->cart->products()->where('product_id', $product->id)->first()->pivot->quantity]);
+        auth()->user()->cart->products()->detach($product->id);
+
+        return redirect()->back()->with('message', 'Item removed from cart!');
     }
 }
