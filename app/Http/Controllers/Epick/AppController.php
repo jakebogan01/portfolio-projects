@@ -19,7 +19,7 @@ class AppController extends Controller
             'canLogin' => Route::has('login'),
             'canRegister' => Route::has('register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
-            'categories' => Category::where('project_id', 1)->get(),
+            'categories' => Category::where('project_id', config('enums.projects')['epick'])->get(),
             'cartQuantity' => $this->getCartQuantity($request)['cartQuantity'],
         ]);
     }
