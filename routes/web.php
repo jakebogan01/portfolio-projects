@@ -12,8 +12,11 @@ use App\Http\Controllers\Epick\ProductController;
 require __DIR__ . '/auth.php';
 
 Route::get('/epick', AppController::class);
-Route::get('/epick/products/category/{category:slug}', [ProductController::class, 'index']);
-Route::get('/epick/products/{product:slug}', [ProductController::class, 'show']);
+
+Route::controller(ProductController::class)->name('products.')->prefix('epick/products')->group(function () {
+    Route::get('/category/{category:slug}', 'index')->name('index');
+    Route::get('/{product:slug}', 'show')->name('show');
+});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
