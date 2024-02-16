@@ -5,7 +5,8 @@
 <script>
     import { Link, page, inertia } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
-    export let categories, canLogin, canRegister;
+    export let categories, canLogin, canRegister, cartQuantity;
+    $: console.log(cartQuantity)
 </script>
 
 <svelte:head>
