@@ -1,36 +1,44 @@
 <script>
     import BreezeButton from "@/Components/Button.svelte";
+    import BreezeCheckbox from "@/Components/Checkbox.svelte";
     import BreezeGuestLayout from "@/Layouts/Guest.svelte";
     import BreezeInput from "@/Components/Input.svelte";
     import BreezeLabel from "@/Components/Label.svelte";
     import BreezeValidationErrors from "@/Components/ValidationErrors.svelte";
-    import { useForm } from "@inertiajs/svelte";
+    import { Link, useForm } from "@inertiajs/svelte";
     let err = {};
     export let errors = {};
-    export let email;
-    export let token;
+    export let status;
+
+    const form = useForm({
+        email: null,
+        password: null,
+        remember: false,
+    });
+
     $: {
         err = errors;
     }
-    const form = useForm({
-        token: token,
-        email: email,
-        password: null,
-        password_confirmation: null,
-    });
+
     const onSubmit = () => {
-        $form.post("/reset-password", {
-            onSuccess: () => $form.reset("password", "password_confirmation"),
+        $form.post("/epick/login", {
+            onSuccess: () => $form.reset(),
         });
     };
 </script>
 
 <svelte:head>
-    <title>Reset Password</title>
+    <title>Log in</title>
 </svelte:head>
 
 <BreezeGuestLayout>
     <BreezeValidationErrors class="mb-4" errors={err} />
+
+    {#if status}
+        <div class="mb-4 font-medium text-sm text-green-600">
+            {status}
+        </div>
+    {/if}
 
     <form on:submit|preventDefault={onSubmit}>
         <div>
@@ -55,30 +63,26 @@
                 class="mt-1 block w-full"
                 value={form.password}
                 required
-                autocomplete="new-password"
+                autocomplete="current-password"
                 on:input={(evt) => ($form.password = evt.detail)}
             />
         </div>
 
-        <div class="mt-4">
-            <BreezeLabel for="password_confirmation" value="Confirm Password" />
-            <BreezeInput
-                id="password_confirmation"
-                type="password"
-                class="mt-1 block w-full"
-                value={form.password_confirmation}
-                required
-                autocomplete="new-password"
-                on:input={(evt) => ($form.password_confirmation = evt.detail)}
-            />
+        <div class="block mt-4">
+            <!-- svelte-ignore a11y-label-has-associated-control -->
+            <label class="flex items-center">
+                <BreezeCheckbox name="remember" bind:checked={form.remember} />
+                <span class="ml-2 text-sm text-gray-600">Remember me</span>
+            </label>
         </div>
 
         <div class="flex items-center justify-end mt-4">
             <BreezeButton
-                xclass:opacity-25={form.processing}
+                class="ml-4"
+                sclass:opacity-25={form.processing}
                 disabled={form.processing}
             >
-                Reset Password
+                Log in
             </BreezeButton>
         </div>
     </form>

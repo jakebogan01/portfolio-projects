@@ -5,7 +5,7 @@
 <script>
     import { Link, page, inertia, router } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
-    export let canLogin, canRegister, cartQuantity, flash;
+    export let canLogin, canRegister, cartQuantity;
     $: console.log(cartQuantity)
 
     const handleBuyProduct = (productId) => {
@@ -27,10 +27,6 @@
     <title>Epick | Checkout</title>
 </svelte:head>
 
-{#if flash.message}
-    <div class="text-center text-blue-500 dark:text-blue-400 font-bold pb-4">{flash.message}</div>
-{/if}
-
 {#if cartQuantity?.quantity > 0}
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
         <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />
@@ -42,15 +38,16 @@
 {#if canLogin}
     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
         {#if $page?.props.auth.user}
-            <Link
-                href="/dashboard"
+            <button
+                type="button"
+                use:inertia={{ href: '/epick/logout', method: 'post' }}
                 class="text-sm text-gray-700 underline dark:text-white"
             >
-                Dashboard
-            </Link>
+                logout
+            </button>
         {:else}
             <Link
-                href="/login"
+                href="/epick/login"
                 class="text-sm text-gray-700 underline dark:text-white"
             >
                 Log in
@@ -58,7 +55,7 @@
 
             {#if canRegister}
                 <Link
-                    href="/register"
+                    href="/epick/register"
                     class="ml-4 text-sm text-gray-700 underline dark:text-white"
                 >
                     Register

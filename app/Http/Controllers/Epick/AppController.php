@@ -16,8 +16,8 @@ class AppController extends Controller
     public function __invoke(Request $request)
     {
         return Inertia::render('Projects/Epick/Home/Index', [
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
+            'canLogin' => Route::has('epick.login'),
+            'canRegister' => Route::has('epick.register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
             'categories' => Category::where('project_id', config('enums.projects')['epick'])->get(),
             'cartQuantity' => $this->getCartQuantity($request)['cartQuantity'],

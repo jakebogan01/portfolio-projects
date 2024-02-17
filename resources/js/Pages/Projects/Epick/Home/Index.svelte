@@ -26,15 +26,16 @@
 {#if canLogin}
     <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
         {#if $page?.props.auth.user}
-            <Link
-                href="/dashboard"
+            <button
+                type="button"
+                use:inertia={{ href: '/epick/logout', method: 'post' }}
                 class="text-sm text-gray-700 underline dark:text-white"
             >
-                Dashboard
-            </Link>
+                Logout
+            </button>
         {:else}
             <Link
-                href="/login"
+                href="/epick/login"
                 class="text-sm text-gray-700 underline dark:text-white"
             >
                 Log in
@@ -42,7 +43,7 @@
 
             {#if canRegister}
                 <Link
-                    href="/register"
+                    href="/epick/register"
                     class="ml-4 text-sm text-gray-700 underline dark:text-white"
                 >
                     Register
