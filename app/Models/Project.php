@@ -13,6 +13,14 @@ class Project extends Model
     /**
      * @return HasMany
      */
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class);
+    }
+
+    /**
+     * @return HasMany
+     */
     public function products(): HasMany
     {
         return $this->hasMany(Product::class);
