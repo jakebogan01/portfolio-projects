@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
@@ -36,7 +37,7 @@ class Controller extends BaseController
     }
 
     /**
-     * Get search results.
+     * Get cart quantity.
      *
      * @return array
      */

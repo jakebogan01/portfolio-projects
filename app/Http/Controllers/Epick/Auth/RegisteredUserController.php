@@ -39,11 +39,16 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => 'required|string|email|max:255',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        if (User::where('email', $request->email)->where('project_id', config('enums.projects')['epick'])->exists()) {
+            return redirect()->route('epick.home')->with('message', 'This email is already taken!');
+        }
+
         $user = User::create([
+            'project_id' => $request->project_id,
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),

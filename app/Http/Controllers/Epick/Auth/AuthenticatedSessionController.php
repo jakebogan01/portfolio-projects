@@ -37,9 +37,16 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
 
+        if ($request->user()->project_id !== config('enums.projects')['epick']) {
+            Auth::guard('web')->logout();
+            $request->session()->invalidate();
+            $request->session()->regenerateToken();
+            return redirect()->route('epick.home')->with('error', 'You are not authorized to access this project');
+        }
+
         $request->session()->regenerate();
 
-        return redirect('/epick')->with('success', 'Welcome to Epick');
+        return redirect()->route('epick.home')->with('success', 'Welcome to Epick');
     }
 
     /**

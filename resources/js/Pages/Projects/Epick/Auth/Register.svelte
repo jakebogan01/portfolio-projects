@@ -8,6 +8,7 @@
     export let errors = {};
 
     let form = useForm({
+        project_id: 1,
         name: null,
         email: null,
         password: null,

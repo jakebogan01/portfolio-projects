@@ -9,6 +9,14 @@
     <div class="text-center text-blue-500 dark:text-blue-400 font-bold pb-4">{flash.message}</div>
 {/if}
 
+{#if flash.success}
+    <div class="text-center text-green-500 dark:text-blue-400 font-bold pb-4">{flash.success}</div>
+{/if}
+
+{#if flash.error}
+    <div class="text-center text-red-500 dark:text-blue-400 font-bold pb-4">{flash.error}</div>
+{/if}
+
 <nav>
     <a href="/epick" use:inertia>Home</a>
 </nav>
