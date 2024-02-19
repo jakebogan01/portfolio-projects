@@ -1,8 +1,31 @@
 <script>
     import { inertia, page, router } from "@inertiajs/svelte";
+    import {onMount} from "svelte";
     /* svelte-ignore unused-export-let */
     export let products, filters;
     $: filters = $page.props.filters;
+
+    onMount(()=>{
+        router.visit($page?.url, {
+            method: 'get',
+            data: {
+                price: undefined,
+                rating: undefined,
+                color: undefined,
+                size: undefined,
+                gender: undefined,
+                age: undefined,
+                style: undefined,
+                brand: undefined,
+                shape: undefined,
+                search: undefined
+            },
+            replace: true,
+            preserveState: true,
+            preserveScroll: true,
+            only: ['products']
+        });
+    });
 
     const filterValues = (filterValue, array) => {
         filterValue.forEach((value, i) => {

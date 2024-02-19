@@ -1,7 +1,21 @@
 <script>
     import { inertia, page, router } from "@inertiajs/svelte";
+    import {onMount} from "svelte";
     /* svelte-ignore unused-export-let */
     export let searchResults, searchFilters;
+
+    onMount(()=>{
+        router.visit($page?.url, {
+            method: 'get',
+            data: {
+                search: undefined
+            },
+            replace: true,
+            preserveState: true,
+            preserveScroll: true,
+            only: ['searchResults']
+        });
+    });
 
     let search = searchFilters?.search || '';
     let timer;
