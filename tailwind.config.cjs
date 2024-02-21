@@ -12,9 +12,14 @@ module.exports = {
     ],
 
     theme: {
+        container: {
+            center: true,
+            padding: "1.25rem",
+        },
         extend: {
             fontFamily: {
-                jost: ["Jost", "sans-serif"],
+                roboto: ["Roboto", "sans-serif"],
+                montserrat: ["Montserrat", "sans-serif"],
             },
             screens: {},
         },
