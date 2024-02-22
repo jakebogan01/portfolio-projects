@@ -7,9 +7,9 @@
 </script>
 
 <header class="text-white mt-[107px]">
-    <h1 class="font-montserrat text-6xl font-bold text-nowrap leading-[44px]">
+    <h1 class="font-montserrat text-7xl font-bold text-nowrap leading-[44px]">
         <slot name="headingText">
-            <GradientHeading margin="ml-[30px]">We fetch</GradientHeading>
+            <GradientHeading styles="sm:ml-[30px]">We fetch</GradientHeading>
             <span class="text-4xl">You select</span>
         </slot>
     </h1>
