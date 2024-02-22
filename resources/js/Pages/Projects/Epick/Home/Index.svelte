@@ -8,6 +8,8 @@
     import GradientHeading from "@/Components/Epick/GradientHeading.svelte";
     import BrandListItem from "@/Components/Epick/Home/BrandListItem.svelte";
     import Button from "@/Components/Epick/Button.svelte";
+    import ProductCard from "@/Components/Epick/Global/ProductCard.svelte";
+    import Footer from "@/Components/Epick/Global/Footer/Footer.svelte";
     /* svelte-ignore unused-export-let */
     export let categories, cartQuantity;
     $: console.log(cartQuantity)
@@ -68,6 +70,18 @@
             </div>
         </section>
 
+        <section id="featured" class="my-28">
+            <h2 class="font-montserrat text-7xl font-bold text-center">
+                <GradientHeading>Featured</GradientHeading>
+            </h2>
+
+            <div class="flex flex-wrap justify-between mx-auto max-w-[372px] mt-2.5">
+                {#each Array(6) as _, i}
+                    <ProductCard />
+                {/each}
+            </div>
+        </section>
+
         <aside id="ctaBanner">
             <div class="bg-[#181A1B] py-12 shadow-[0px_0px_0px_100vmax_rgb(24,26,27)]" style="clip-path: inset(0 -100vmax);">
                 <h3 class="font-roboto text-xl">Elevate your style, click and smile</h3>
@@ -78,6 +92,8 @@
             </div>
         </aside>
     </main>
+
+    <Footer />
 </div>
 
 <!--{#if cartQuantity?.quantity > 0}-->
