@@ -4,11 +4,11 @@
 
 <script>
     import { Link, page, inertia } from "@inertiajs/svelte";
-    import Header from "@/Components/Epick/Header.svelte";
-    import GradientHeading from "@/Components/Epick/GradientHeading.svelte";
+    import Header from "@/Components/Epick/Global/Header.svelte";
+    import GradientHeading from "@/Components/Epick/Global/GradientHeading.svelte";
     import BrandListItem from "@/Components/Epick/Home/BrandListItem.svelte";
-    import Button from "@/Components/Epick/Button.svelte";
-    import ProductCard from "@/Components/Epick/Global/ProductCard.svelte";
+    import Button from "@/Components/Epick/Global/Button.svelte";
+    import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
     import Footer from "@/Components/Epick/Global/Footer/Footer.svelte";
     /* svelte-ignore unused-export-let */
     export let categories, cartQuantity;

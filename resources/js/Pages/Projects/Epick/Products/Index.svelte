@@ -3,9 +3,9 @@
 </script>
 
 <script>
-    import Pagination from "@/Components/Epick/Pagination.svelte";
-    import Products from "@/Components/Epick/Products.svelte";
-    import ProductFilters from "@/Components/Epick/ProductFilters.svelte";
+    import Pagination from "@/Components/Epick/Products/Pagination.svelte";
+    import Products from "@/Components/Epick/Global/Products/Products.svelte";
+    import ProductFilters from "@/Components/Epick/Products/ProductFilters.svelte";
     /* svelte-ignore unused-export-let */
     export let products, filters;
 </script>

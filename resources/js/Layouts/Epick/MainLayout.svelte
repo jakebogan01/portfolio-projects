@@ -1,7 +1,7 @@
 <script>
     import {inertia, Link, page} from "@inertiajs/svelte";
-    import Search from "@/Components/Epick/Search.svelte";
-    import Nav from "@/Components/Epick/Nav.svelte";
+    import Search from "@/Components/Epick/Global/Search.svelte";
+    import Nav from "@/Components/Epick/Global/Nav.svelte";
     /* svelte-ignore unused-export-let */
     export let searchResults, searchFilters, flash, canLogin, canRegister;
 </script>

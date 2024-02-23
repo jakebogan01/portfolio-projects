@@ -1,7 +1,7 @@
 <script>
     /* svelte-ignore unused-export-let */
-    import Button from "@/Components/Epick/Button.svelte";
-    import GradientHeading from "@/Components/Epick/GradientHeading.svelte";
+    import Button from "@/Components/Epick/Global/Button.svelte";
+    import GradientHeading from "@/Components/Epick/Global/GradientHeading.svelte";
 
     export let addBtn = true;
 </script>
@@ -10,6 +10,7 @@
     <h1 class="font-montserrat text-7xl font-bold text-nowrap leading-[44px]">
         <slot name="headingText">
             <GradientHeading styles="sm:ml-[30px]">We fetch</GradientHeading>
+            <br>
             <span class="text-4xl">You select</span>
         </slot>
     </h1>

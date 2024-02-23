@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import Product from "@/Components/Epick/Product.svelte";
+    import Product from "@/Components/Epick/Global/Products/Product.svelte";
     /* svelte-ignore unused-export-let */
     export let product;
 </script>
