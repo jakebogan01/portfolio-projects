@@ -9,7 +9,7 @@
 
 {#each icons as icon}
     <li class="block">
-        <a href="#" class="flex justify-center items-center text-[#F8F8F8] hover:text-black bg-[#181A1B] hover:bg-white rounded w-9 h-9 group transform hover:-translate-y-1 transition-all duration-700">
+        <a href="#" class="flex justify-center items-center text-[#F8F8F8] sm:hover:text-black bg-[#181A1B] sm:hover:bg-white rounded w-9 h-9 group sm:transform sm:hover:-translate-y-1 transition-all duration-700">
             {@html icon}
         </a>
     </li>
