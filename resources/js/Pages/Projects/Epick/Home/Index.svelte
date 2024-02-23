@@ -95,12 +95,12 @@
             </div>
         </section>
 
-        <section id="featured" class="my-28">
-            <h2 class="font-montserrat text-7xl font-bold text-center">
+        <section id="featured" class="my-28 md:my-48">
+            <h2 class="font-montserrat text-7xl md:text-[105px] font-bold text-center">
                 <GradientHeading>Featured</GradientHeading>
             </h2>
 
-            <div class="flex flex-wrap justify-between mx-auto max-w-[372px] mt-2.5">
+            <div class="flex flex-wrap justify-between mx-auto max-w-[372px] md:max-w-[600px] mt-2.5">
                 {#each Array(6) as _, i}
                     <ProductCard />
                 {/each}
