@@ -10,6 +10,7 @@
     import Button from "@/Components/Epick/Global/Button.svelte";
     import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
     import Footer from "@/Components/Epick/Global/Footer/Footer.svelte";
+    import ShoeBanner from "@/Components/Epick/Home/ShoeBanner.svelte";
     /* svelte-ignore unused-export-let */
     export let categories, cartQuantity;
     $: console.log(cartQuantity)
@@ -19,7 +20,7 @@
     <title>Epick | Home</title>
 </svelte:head>
 
-<div class="container overflow-hidden">
+<div class="container sm:max-w-[1440px] overflow-hidden">
     <picture>
 <!--        <source media="(min-width:650px)" srcset="img_pink_flowers.jpg" class="absolute -top-56 right-[5dvw] -z-10" role="presentation">-->
         <source media="(min-width:640px)" srcset="/images/epick/tablet/home/banner-headphones.png">
@@ -64,20 +65,33 @@
             </div>
         </section>
 
-        <section id="new" class="bg-white py-14 shadow-[0px_0px_0px_100vmax_rgb(255,255,255)]" style="clip-path: inset(0 -100vmax);">
-            <div class="relative">
-                <h2 class="font-montserrat text-7xl font-bold text-center mb-[286px]">
+        <section id="new" class="bg-white py-14 md:py-20 shadow-[0px_0px_0px_100vmax_rgb(255,255,255)]" style="clip-path: inset(0 -100vmax);">
+            <div class="max-w-[964px] mx-auto">
+                <h2 class="hidden md:inline-block w-full font-montserrat text-7xl md:text-[105px] font-bold text-center">
                     <GradientHeading bkg="bg-gradient-to-t from-white to-black from-10%">New</GradientHeading>
                 </h2>
-                <div class="absolute top-[100px] left-1/2 transform -translate-x-1/2 w-[288px]">
-                    <img src="/images/epick/mobile/home/back-shoe.png" alt="" class="absolute left-1/2 transform -translate-x-3/4 -translate-y-3.5 w-4/5" role="presentation">
-                    <img src="/images/epick/mobile/home/front-shoe.png" alt="" class="absolute left-1/2 transform -translate-x-[47%] w-full" role="presentation">
+                <div class="flex flex-col md:flex-row max-w-[771px] mx-auto">
+                    <div class="hidden md:block">
+                        <div class="relative w-[475px] h-[408px] mx-auto mt-12 mb-8 transform -translate-x-[62px]">
+                            <ShoeBanner />
+                        </div>
+                    </div>
+                    <div class="max-w-[564px] md:max-w-[306px] mx-auto md:mt-[135px]">
+                        <h2 class="md:hidden font-montserrat text-7xl md:text-[105px] font-bold text-center">
+                            <GradientHeading bkg="bg-gradient-to-t from-white to-black from-10%">New</GradientHeading>
+                        </h2>
+                        <div class="relative md:hidden w-[288px] h-[247px] mx-auto mt-12 mb-8">
+                            <ShoeBanner />
+                        </div>
+                        <p class="text-[#2E2E2E] font-roboto">Explore the wonders of Epick! Unveil new treasures every week
+                            as we handpick the latest releases to fulfill your desires. Shop with certainty, knowing we're
+                            always stocked and ready for your every need.</p>
+                        <Button bkg="bg-[#0F0F10]">
+                            <svg slot="btnIcon" xmlns="http://www.w3.org/2000/svg" width="21.42" height="21.42"><path fill="none" stroke="currentColor" d="M10.71 5.049v-.8m0 12.138V8.441m10.21 2.269A10.21 10.21 0 1 1 10.71.5a10.21 10.21 0 0 1 10.21 10.21Z"/></svg>
+                            <span slot="btnText" class="ml-2">More info</span>
+                        </Button>
+                    </div>
                 </div>
-                <p class="text-[#2E2E2E] font-roboto">Explore the wonders of Epick! Unveil new treasures every week as we handpick the latest releases to fulfill your desires. Shop with certainty, knowing we're always stocked and ready for your every need.</p>
-                <Button bkg="bg-[#0F0F10]">
-                    <svg slot="btnIcon" xmlns="http://www.w3.org/2000/svg" width="21.42" height="21.42"><path fill="none" stroke="currentColor" d="M10.71 5.049v-.8m0 12.138V8.441m10.21 2.269A10.21 10.21 0 1 1 10.71.5a10.21 10.21 0 0 1 10.21 10.21Z"/></svg>
-                    <span slot="btnText" class="ml-2">More info</span>
-                </Button>
             </div>
         </section>
 
