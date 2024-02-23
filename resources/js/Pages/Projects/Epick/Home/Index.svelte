@@ -88,7 +88,7 @@
                             always stocked and ready for your every need.</p>
                         <Button bkg="bg-[#0F0F10]">
                             <svg slot="btnIcon" xmlns="http://www.w3.org/2000/svg" width="21.42" height="21.42"><path fill="none" stroke="currentColor" d="M10.71 5.049v-.8m0 12.138V8.441m10.21 2.269A10.21 10.21 0 1 1 10.71.5a10.21 10.21 0 0 1 10.21 10.21Z"/></svg>
-                            <span slot="btnText" class="ml-2">More info</span>
+                            <span slot="btnText" class="ml-2 md:ml-4">More info</span>
                         </Button>
                     </div>
                 </div>
@@ -108,12 +108,15 @@
         </section>
 
         <aside id="ctaBanner">
-            <div class="bg-[#181A1B] py-12 shadow-[0px_0px_0px_100vmax_rgb(24,26,27)]" style="clip-path: inset(0 -100vmax);">
-                <h3 class="font-roboto text-xl">Elevate your style, click and smile</h3>
-                <span class="inline-block text-[#A3A6A7] text-base pb-1">Buy Now, up to 40% off.</span>
-                <Button bkg="bg-[#0F0F10]">
-                    <span slot="btnText" class="ml-2">Buy now</span>
-                </Button>
+            <div class="relative bg-[#181A1B] py-12 shadow-[0px_0px_0px_100vmax_rgb(24,26,27)] sm:shadow-none sm:rounded-lg sm:px-12 md:px-[92px] sm:py-[75px]" style="clip-path: inset(0 -100vmax);">
+                <div class="relative text-center sm:text-left z-0">
+                    <h3 class="font-roboto text-xl sm:text-2xl">Elevate your style, click and smile</h3>
+                    <span class="inline-block text-[#A3A6A7] text-base pb-1">Buy Now, up to 40% off.</span>
+                    <Button bkg="bg-[#0F0F10]">
+                        <span slot="btnText" class="ml-2 sm:ml-4">Buy now</span>
+                    </Button>
+                </div>
+                <img src="/images/epick/tablet/home/shopping-bags.png" alt="" class="hidden sm:block absolute right-0 bottom-0 -z-10" role="presentation">
             </div>
         </aside>
     </main>
