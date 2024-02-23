@@ -56,7 +56,7 @@
                     </ul>
                 </div>
                 <div class="flex items-center">
-                    <div class="max-w-[250px] md:max-w-[300px] transform translate-x-6 md:translate-x-12">
+                    <div class="min-w-[240px] md:max-w-[300px] transform md:translate-x-12">
                         <span class="block">
                             <img src="/images/epick/mobile/home/iwatch.png" alt="Two Apple iWatch" class="w-full" />
                         </span>
