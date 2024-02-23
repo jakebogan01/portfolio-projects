@@ -30,11 +30,11 @@
 {#each brandListItems as item}
     <li class={item.styles}>
         <span class="block">
-            <span class="block mb-1">
+            <span class="block mb-1 md:mb-1.5">
                 {@html item.icon}
             </span>
             <span class="block">{item.title}</span>
-            <span class="block text-base font-normal">{item.subtitle}</span>
+            <span class="block text-base font-light">{item.subtitle}</span>
         </span>
     </li>
 {/each}
