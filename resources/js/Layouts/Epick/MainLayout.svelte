@@ -52,7 +52,7 @@
 <!--<Search {searchFilters} {searchResults} />-->
 
 <div class="container sm:max-w-[1440px] overflow-hidden">
-    <Nav />
+    <Nav {canLogin} {canRegister}/>
 
     <slot />
 

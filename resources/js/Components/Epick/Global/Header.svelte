@@ -31,7 +31,7 @@
         </p>
 
         {#if addBtn}
-            <Button/>
+            <Button />
         {/if}
     </div>
 </header>

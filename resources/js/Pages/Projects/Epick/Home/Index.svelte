@@ -19,12 +19,6 @@
     <title>Epick | Home</title>
 </svelte:head>
 
-<!--<picture>-->
-<!--    <source media="(min-width:1440px)" srcset="/images/epick/desktop/home/banner-headphones.png">-->
-<!--    <source media="(min-width:640px)" srcset="/images/epick/tablet/home/banner-headphones.png">-->
-<!--    <img src="/images/epick/mobile/home/banner-headphones.png" alt="" class="absolute -top-56 md:-top-[288px] right-[5dvw] md:right-[25vw] sm:max-w-[219px] md:max-w-[320px] -z-10" role="presentation">-->
-<!--</picture>-->
-
 <main>
     <Header addBtn={true} />
 
