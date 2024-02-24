@@ -62,17 +62,17 @@
 
     <section id="new" class="bg-white py-14 md:py-20 shadow-[0px_0px_0px_100vmax_rgb(255,255,255)]" style="clip-path: inset(0 -100vmax);">
         <div class="max-w-[964px] mx-auto">
-            <h2 class="hidden md:inline-block w-full font-montserrat text-7xl md:text-[105px] font-bold text-center">
+            <h2 class="hidden md:inline-block 1440:hidden w-full font-montserrat text-7xl md:text-[105px] font-bold text-center">
                 <GradientHeading bkg="bg-gradient-to-t from-white to-black from-10%">New</GradientHeading>
             </h2>
             <div class="flex flex-col md:flex-row max-w-[771px] mx-auto">
-                <div class="hidden md:block">
-                    <div class="relative w-[475px] h-[408px] mx-auto mt-12 mb-8 transform -translate-x-[62px]">
+                <div class="hidden md:block 1440:max-w-[500px]">
+                    <div class="relative w-[475px] h-[408px] 1440:w-[605px] 1440:h-[517px] mx-auto mt-12 mb-8 transform -translate-x-[62px]">
                         <ShoeBanner />
                     </div>
                 </div>
                 <div class="max-w-[564px] md:max-w-[306px] mx-auto md:mt-[135px]">
-                    <h2 class="md:hidden font-montserrat text-7xl md:text-[105px] font-bold text-center">
+                    <h2 class="md:hidden 1440:inline-block font-montserrat text-7xl md:text-[105px] font-bold text-center 1440:text-left 1440:-ml-2 1440:mb-5">
                         <GradientHeading bkg="bg-gradient-to-t from-white to-black from-10%">New</GradientHeading>
                     </h2>
                     <div class="relative md:hidden w-[288px] h-[247px] mx-auto mt-12 mb-8">
