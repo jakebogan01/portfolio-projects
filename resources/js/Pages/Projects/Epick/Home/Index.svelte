@@ -41,16 +41,19 @@
             <GradientHeading>Brands</GradientHeading>
         </h2>
 
-        <div class="flex justify-between mt-[62px] max-w-[500px] mx-auto">
+        <div class="flex justify-between mt-[62px] 1440:mt-32 max-w-[500px] 1440:max-w-[565px] mx-auto">
             <div class="min-w-[180px]">
                 <ul class="space-y-7 font-montserrat text-xl md:text-2xl font-semibold">
                     <BrandListItem />
                 </ul>
             </div>
             <div class="flex items-center">
-                <div class="min-w-[240px] md:max-w-[300px] transform md:translate-x-12">
+                <div class="min-w-[240px] md:max-w-[300px] 1440:max-w-[360px] transform md:translate-x-12">
                     <span class="block">
-                        <img src="/images/epick/mobile/home/iwatch.png" alt="Two Apple iWatch" class="w-full" />
+                        <picture>
+                            <source media="(min-width:1440px)" srcset="/images/epick/desktop/home/iwatch.png">
+                            <img src="/images/epick/mobile/home/iwatch.png" alt="Two Apple iWatch" class="w-full">
+                        </picture>
                     </span>
                 </div>
             </div>
