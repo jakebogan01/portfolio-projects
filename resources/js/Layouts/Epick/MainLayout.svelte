@@ -2,11 +2,10 @@
     import {inertia, Link, page} from "@inertiajs/svelte";
     import Search from "@/Components/Epick/Global/Search.svelte";
     import Nav from "@/Components/Epick/Global/Nav.svelte";
+    import Footer from "@/Components/Epick/Global/Footer/Footer.svelte";
     /* svelte-ignore unused-export-let */
     export let searchResults, searchFilters, flash, canLogin, canRegister;
 </script>
-
-<Nav />
 
 <!--{#if flash.message}-->
 <!--    <div class="text-center text-blue-500 dark:text-blue-400 font-bold pb-4">{flash.message}</div>-->
@@ -52,4 +51,10 @@
 
 <!--<Search {searchFilters} {searchResults} />-->
 
-<slot />
+<div class="container sm:max-w-[1440px] overflow-hidden">
+    <Nav />
+
+    <slot />
+
+    <Footer />
+</div>

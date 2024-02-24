@@ -14,14 +14,21 @@ module.exports = {
     theme: {
         container: {
             center: true,
-            padding: "1.25rem",
+            // padding: "1.25rem",
+            padding: {
+                DEFAULT: '1.25rem',
+                '1500': '0',
+            },
         },
         extend: {
             fontFamily: {
                 roboto: ["Roboto", "sans-serif"],
                 montserrat: ["Montserrat", "sans-serif"],
             },
-            screens: {},
+            screens: {
+                '1440': '1440px',
+                '1500': '1500px',
+            },
         },
     },
 

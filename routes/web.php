@@ -12,7 +12,7 @@ Route::get('/epick/checkout', CheckoutController::class)->name('epick.checkout')
 
 Route::controller(ProductController::class)->name('products.')->prefix('epick/products')->group(function () {
     Route::get('/category/{category:slug}', 'index')->name('epick.index');
-    Route::get('/{product:slug}', 'show')->name('epick.show');
+    Route::get('/{global:slug}', 'show')->name('epick.show');
     Route::post('/cart/add', 'store')->name('epick.store');
-    Route::delete('/cart/remove/{product}', 'destroy')->name('epick.destroy');
+    Route::delete('/cart/remove/{global}', 'destroy')->name('epick.destroy');
 });

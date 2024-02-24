@@ -1,4 +1,4 @@
-<nav class="container flex justify-between items-center py-5 text-white md:text-right">
+<nav class="flex justify-between items-center py-5 text-white md:text-right">
     <div class="hidden md:block">
         <a href="#">
             <span class="sr-only">Epick</span>

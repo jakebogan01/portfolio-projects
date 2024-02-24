@@ -101,7 +101,7 @@ class ProductController extends Controller
             abort(404);
         }
         return Inertia::render('Projects/Epick/Products/Show', [
-            'product' => [
+            'global' => [
                 'id' => $product->id,
                 'title' => $product->title,
                 'price' => $product->price,
