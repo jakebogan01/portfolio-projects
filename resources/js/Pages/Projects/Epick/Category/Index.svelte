@@ -7,6 +7,8 @@
     import Header from "@/Components/Epick/Global/Header.svelte";
     import GradientHeading from "@/Components/Epick/Global/GradientHeading.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
+    import SearchButton from "@/Components/Epick/Global/Search/SearchButton.svelte";
+    import Search from "@/Components/Epick/Global/Search/Search.svelte";
     /* svelte-ignore unused-export-let */
     export let categories, cartQuantity;
     $: console.log(cartQuantity)
@@ -15,6 +17,8 @@
 <svelte:head>
     <title>Epick | Category</title>
 </svelte:head>
+
+<!--<Search />-->
 
 <main>
     <div class="flex justify-center lg:justify-start max-w-[1198px] mx-auto">
@@ -29,15 +33,7 @@
             </span>
         </Header>
 
-        <div class="hidden flex-1 lg:flex items-end justify-end">
-            <div class="flex-1 max-w-[442px] relative pointer-events-auto">
-                <button type="button" class="w-full flex items-center text-sm leading-6 text-[#646769] bg-[#181A1B] rounded-md ring-1 ring-slate-900/10 py-3 pl-2 pr-3 hover:ring-slate-300">
-                    <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none"><path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle></svg>
-                    Quick search...
-                    <span class="ml-auto pl-3 flex-none text-xs font-semibold">&#8984;K</span>
-                </button>
-            </div>
-        </div>
+        <SearchButton />
     </div>
 
     <section id="categories" class="my-28 md:mb-48">
