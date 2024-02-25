@@ -96,7 +96,7 @@
             <GradientHeading>Featured</GradientHeading>
         </h2>
 
-        <div class="flex flex-wrap justify-between mx-auto max-w-[372px] md:max-w-[600px] mt-2.5 1440:mt-14">
+        <div class="flex flex-wrap justify-between max-w-[372px] md:max-w-[700px] mx-auto mt-2.5 1440:mt-14">
             {#each Array(6) as _, i}
                 <ProductCard />
             {/each}
