@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-class AppController extends Controller
+class HomeController extends Controller
 {
     /**
      * Handle the incoming request.
@@ -19,7 +19,6 @@ class AppController extends Controller
             'canLogin' => Route::has('epick.login'),
             'canRegister' => Route::has('epick.register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
-            'categories' => Category::where('project_id', config('enums.projects')['epick'])->get(),
             'cartQuantity' => $this->getCartQuantity($request)['cartQuantity'],
         ]);
     }
