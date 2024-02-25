@@ -17,16 +17,28 @@
 </svelte:head>
 
 <main>
-    <Header addBtn={false} addImg={false}>
-        <span slot="headingText">
-            <GradientHeading>Shop</GradientHeading>
-            <br>
-            <span class="text-4xl md:text-7xl sm:ml-[72px]">By Category</span>
-        </span>
-        <span slot="introText">
-            Explore our diverse range of high-quality products across multiple categories. We prioritize excellence, ensuring you receive only the finest items. Choose quality, choose satisfaction with us.
-        </span>
-    </Header>
+    <div class="flex justify-center lg:justify-start max-w-[1198px] mx-auto">
+        <Header addBtn={false} addImg={false}>
+            <span slot="headingText">
+                <GradientHeading>Choose</GradientHeading>
+                <br>
+                <span class="text-4xl md:text-7xl sm:ml-[72px]">A Category</span>
+            </span>
+            <span slot="introText">
+                Explore our diverse range of high-quality products across multiple categories. We prioritize excellence, ensuring you receive only the finest items. Choose quality, choose satisfaction with us.
+            </span>
+        </Header>
+
+        <div class="hidden flex-1 lg:flex items-end justify-end">
+            <div class="flex-1 max-w-[442px] relative pointer-events-auto">
+                <button type="button" class="w-full flex items-center text-sm leading-6 text-[#646769] bg-[#181A1B] rounded-md ring-1 ring-slate-900/10 py-3 pl-2 pr-3 hover:ring-slate-300">
+                    <svg width="24" height="24" fill="none" aria-hidden="true" class="mr-3 flex-none"><path d="m19 19-3.5-3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></circle></svg>
+                    Quick search...
+                    <span class="ml-auto pl-3 flex-none text-xs font-semibold">&#8984;K</span>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <section id="categories" class="my-28 md:mb-48">
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-4 sm:max-w-[580px] xl:max-w-[1220px] mx-auto mt-2.5 1440:mt-14">
