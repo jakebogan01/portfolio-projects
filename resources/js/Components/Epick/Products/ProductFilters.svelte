@@ -5,6 +5,8 @@
     export let products, filters;
     $: filters = $page.props.filters;
 
+    let titles = ['Color', 'Size', 'Gender', 'Age', 'Style', 'Brand', 'Shape'];
+
     onMount(()=>{
         router.visit($page?.url, {
             method: 'get',
@@ -30,7 +32,7 @@
     const filterValues = (filterValue, array) => {
         filterValue.forEach((value, i) => {
             if (array.findIndex(item => item.name === value) === -1) {
-                array.push({id: i, name: value, checked: false});
+                array.push({id: i, name: value, checked: false, show: false});
             }
         });
     }
@@ -106,29 +108,48 @@
     }
 </script>
 
-<form >
-    <div class="w-[200px]">
-        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>
-        <select id="price" name="price" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">
-            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: undefined, price: undefined, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">All</option>
-            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'high', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Highest Price</option>
-            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'low', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Lowest Price</option>
-            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'popular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Most Popular</option>
-            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'unpopular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Least Popular</option>
-        </select>
-    </div>
+<!--    <div class="w-[200px]">-->
+<!--        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>-->
+<!--        <select id="price" name="price" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">-->
+<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: undefined, price: undefined, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">All</option>-->
+<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'high', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Highest Price</option>-->
+<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'low', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Lowest Price</option>-->
+<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'popular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Most Popular</option>-->
+<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'unpopular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Least Popular</option>-->
+<!--        </select>-->
+<!--    </div>-->
 
-    <!-- Filters -->
-    {#each [colorValues, sizeValues, genderValues, ageValues, styleValues, brandValues, shapeValues] as values}
-        {#if values.length > 0}
-            <div class="flex space-x-4 mt-4 px-3">
-                {#each values as value (value.id)}
-                    <div class="flex items-center">
-                        <input id={'checkbox'+value.id} name="color" bind:checked={value.checked} value={value.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500">
-                        <label for={'checkbox'+value.id} class="ml-3 text-sm text-gray-500">{value.name}</label>
+{#each [colorValues, sizeValues, genderValues, ageValues, styleValues, brandValues, shapeValues] as values, i}
+    {#if values.length > 0}
+        <div class="border-b border-[#36363b] last:border-none py-6">
+            <h3 class="-my-3 flow-root">
+                <!-- Expand/collapse section button -->
+                <button type="button" on:click={()=>{values.show = !values.show}} class="flex w-full items-center justify-between py-3 text-sm" aria-controls="filter-section-1" aria-expanded="false">
+                    <span class="font-medium">{titles[i]}</span>
+                    <span class="ml-6 flex items-center">
+                        {#if values.show}
+                            <!-- Collapse icon, show/hide based on section open state. -->
+                            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M4 10a.75.75 0 01.75-.75h10.5a.75.75 0 010 1.5H4.75A.75.75 0 014 10z" clip-rule="evenodd" /></svg>
+                        {:else}
+                            <!-- Expand icon, show/hide based on section open state. -->
+                            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" /></svg>
+                        {/if}
+                    </span>
+                </button>
+            </h3>
+            <!-- Filter section, show/hide based on section state. -->
+            {#if values.show}
+                <div class="pt-6" id="filter-section-1">
+                    <div class="space-y-4">
+                        {#each values as value (value.id)}
+                            <div class="flex items-center">
+                                <input id={'checkbox'+value.id} name="color" bind:checked={value.checked} value={value.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-[#2780EA] focus:ring-[#2f85eb]">
+                                <label for={'checkbox'+value.id} class="ml-3 text-sm text-gray-300">{value.name}</label>
+                            </div>
+                        {/each}
                     </div>
-                {/each}
-            </div>
-        {/if}
-    {/each}
-</form>
+                </div>
+            {/if}
+        </div>
+    {/if}
+{/each}
