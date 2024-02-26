@@ -12,8 +12,9 @@
     import ShoeBanner from "@/Components/Epick/Home/ShoeBanner.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     /* svelte-ignore unused-export-let */
-    export let cartQuantity;
+    export let cartQuantity, featuredProducts;
     $: console.log(cartQuantity)
+    $: console.log('featured products', featuredProducts)
 </script>
 
 <svelte:head>
@@ -97,8 +98,8 @@
         </h2>
 
         <div class="flex flex-wrap justify-between max-w-[372px] md:max-w-[700px] mx-auto mt-2.5 1440:mt-14">
-            {#each Array(6) as _, i}
-                <ProductCard />
+            {#each featuredProducts as feature (feature.id)}
+                <ProductCard {...feature}/>
             {/each}
         </div>
     </section>
@@ -113,8 +114,6 @@
 <!--        </svg>-->
 <!--    </a>-->
 <!--{/if}-->
-
-<!--<h1>HOME</h1>-->
 
 <!--<div class="space-y-4 mt-5">-->
 <!--    {#await categories}-->
