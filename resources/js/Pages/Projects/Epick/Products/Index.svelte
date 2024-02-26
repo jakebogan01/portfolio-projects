@@ -8,6 +8,7 @@
     import Products from "@/Components/Epick/Global/Products/Products.svelte";
     import ProductFilters from "@/Components/Epick/Products/ProductFilters.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
+    import ShortCut from "@/Components/Epick/Global/Search/ShortCut.svelte";
     /* svelte-ignore unused-export-let */
     export let products, filters;
 
@@ -48,7 +49,10 @@
 
     <div>
         <div class="flex items-baseline justify-between border-b border-[#36363b] pb-6 pt-24">
-            <h1 class="text-4xl tracking-tight capitalize">{currentCategory === 'clothes' ? 'clothing' : currentCategory}</h1>
+            <div class="flex items-center space-x-2 pointer-events-auto">
+                <h1 class="text-4xl tracking-tight capitalize">{currentCategory === 'clothes' ? 'clothing' : currentCategory}</h1>
+                <ShortCut />
+            </div>
 
             <div class="flex items-center">
                 <div class="relative inline-block text-left">

@@ -45,8 +45,8 @@ class ProductController extends Controller
                     'shape' => $product->shape,
                     'rating' => $product->rating,
                 ]),
-            'canLogin' => Route::has('login'),
-            'canRegister' => Route::has('register'),
+            'canLogin' => Route::has('epick.login'),
+            'canRegister' => Route::has('epick.register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
             'filters' => request()->only(['price', 'color', 'size', 'gender', 'age', 'style', 'brand', 'shape', 'rating']),
         ]);
@@ -101,15 +101,19 @@ class ProductController extends Controller
             abort(404);
         }
         return Inertia::render('Projects/Epick/Products/Show', [
-            'global' => [
+            'product' => [
                 'id' => $product->id,
                 'title' => $product->title,
+                'description' => $product->description,
+                'color' => $product->color,
                 'price' => $product->price,
                 'image' => $product->image,
                 'images' => $product->images,
                 'category' => $product->category->name,
             ],
             'searchResults' => $this->getSearchResults()['searchResults'],
+            'canLogin' => Route::has('epick.login'),
+            'canRegister' => Route::has('epick.register'),
         ]);
     }
 
