@@ -19,7 +19,7 @@
     <title>Epick | {currentCategory}</title>
 </svelte:head>
 
-<div class="sm:mb-28">
+<div class="sm:mb-20">
     <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
         <div class="fixed inset-0 bg-black bg-opacity-25"></div>
 
