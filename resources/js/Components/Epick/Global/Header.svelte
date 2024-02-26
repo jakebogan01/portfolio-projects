@@ -33,7 +33,7 @@
         </p>
 
         {#if addBtn}
-            <Button />
+            <Button src="/epick/category"/>
         {/if}
     </div>
 </header>

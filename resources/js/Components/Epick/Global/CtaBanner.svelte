@@ -7,7 +7,7 @@
         <div class="relative text-center sm:text-left z-0">
             <h3 class="font-roboto text-xl sm:text-2xl">Elevate your style, click and smile</h3>
             <span class="inline-block text-[#A3A6A7] text-base pb-1">Buy Now, up to 40% off.</span>
-            <Button bkg="bg-[#0F0F10]">
+            <Button bkg="bg-[#0F0F10]" src="/epick/products/category/clothes">
                 <span slot="btnText" class="ml-2 sm:ml-4">Buy now</span>
             </Button>
         </div>

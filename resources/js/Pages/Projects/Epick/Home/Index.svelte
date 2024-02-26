@@ -83,7 +83,7 @@
                     <p class="text-[#2E2E2E] font-roboto">Explore the wonders of Epick! Unveil new treasures every week
                         as we handpick the latest releases to fulfill your desires. Shop with certainty, knowing we're
                         always stocked and ready for your every need.</p>
-                    <Button bkg="bg-[#0F0F10]">
+                    <Button bkg="bg-[#0F0F10]" src="/epick">
                         <svg slot="btnIcon" xmlns="http://www.w3.org/2000/svg" width="21.42" height="21.42"><path fill="none" stroke="currentColor" d="M10.71 5.049v-.8m0 12.138V8.441m10.21 2.269A10.21 10.21 0 1 1 10.71.5a10.21 10.21 0 0 1 10.21 10.21Z"/></svg>
                         <span slot="btnText" class="ml-2 md:ml-4">More info</span>
                     </Button>
