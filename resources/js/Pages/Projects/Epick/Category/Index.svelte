@@ -3,7 +3,7 @@
 </script>
 
 <script>
-    import { Link, page, inertia } from "@inertiajs/svelte";
+    import { inertia } from "@inertiajs/svelte";
     import Header from "@/Components/Epick/Global/Header.svelte";
     import GradientHeading from "@/Components/Epick/Global/GradientHeading.svelte";
     import SearchButton from "@/Components/Epick/Global/Search/SearchButton.svelte";
@@ -44,7 +44,7 @@
                     <a use:inertia href="/epick/products/category/{slug}" class="flex flex-col justify-end max-w-[260px] max-h-[220px] w-full mx-auto bg-[#181A1B] px-3 py-3 rounded-lg mt-28 sm:mt-20">
                         <div class="flex justify-center">
                             <div class="w-[210px] mb-4">
-                                <img src="/images/epick/mobile/category/clothes.png" alt="headphone" class="w-full" />
+                                <img src="/images/epick/mobile/category/clothes.png" alt={name} class="w-full" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true"/>
                             </div>
                         </div>
                         <div class="flex justify-between">

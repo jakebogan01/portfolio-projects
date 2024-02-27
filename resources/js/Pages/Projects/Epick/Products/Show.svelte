@@ -6,9 +6,9 @@
     import { inertia } from "@inertiajs/svelte";
     import Product from "@/Components/Epick/Global/Products/Product.svelte";
     import ShortCut from "@/Components/Epick/Global/Search/ShortCut.svelte";
-    import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     import Notification from "@/Components/Epick/Global/Notification.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
+    import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
     /* svelte-ignore unused-export-let */
     export let product, flash, searchResults, searchFilters;
     let showSearch = false;
@@ -36,14 +36,10 @@
         <section aria-labelledby="related-heading" class="mt-10 border-t border-[#36363b] px-4 py-10 sm:px-0">
             <h2 id="related-heading" class="text-xl font-bold">Related products</h2>
 
-            <div class="mt-8 grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                <div>
-                    <div class="relative">
-                        <div class="relative h-72 w-full overflow-hidden rounded-lg">
-                            <img src="https://tailwindui.com/img/ecommerce-images/product-page-03-related-product-01.jpg" alt="Front of zip tote bag with white canvas, black canvas straps and handle, and black zipper pulls." class="h-full w-full object-cover object-center">
-                        </div>
-                    </div>
-                </div>
+            <div class="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+                {#each Array(4) as _, i}
+                    <ProductCard />
+                {/each}
                 <!-- More products... -->
             </div>
         </section>

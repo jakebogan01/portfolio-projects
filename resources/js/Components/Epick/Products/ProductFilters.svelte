@@ -1,5 +1,5 @@
 <script>
-    import { inertia, page, router } from "@inertiajs/svelte";
+    import { page, router } from "@inertiajs/svelte";
     import {onMount} from "svelte";
     /* svelte-ignore unused-export-let */
     export let products, filters;

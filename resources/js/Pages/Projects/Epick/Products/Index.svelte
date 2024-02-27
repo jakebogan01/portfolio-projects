@@ -7,7 +7,6 @@
     import Pagination from "@/Components/Epick/Products/Pagination.svelte";
     import Products from "@/Components/Epick/Global/Products/Products.svelte";
     import ProductFilters from "@/Components/Epick/Products/ProductFilters.svelte";
-    import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     import ShortCut from "@/Components/Epick/Global/Search/ShortCut.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
     /* svelte-ignore unused-export-let */

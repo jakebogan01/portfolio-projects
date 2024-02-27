@@ -1,12 +1,11 @@
 <script>
-    import { router, inertia } from "@inertiajs/svelte";
+    import { router } from "@inertiajs/svelte";
     import ProductImages from "@/Components/Epick/Global/Products/ProductImages.svelte";
     /* svelte-ignore unused-export-let */
     export let product;
 
     let paragraphs = product?.description.split('\n').filter(para => para.trim() !== '');
 
-    console.log(product)
     const handleBuyProduct = () => {
         router.visit('/epick/products/cart/add', {
             method: 'post',
@@ -41,7 +40,7 @@
             <div class="aspect-h-1 aspect-w-1 w-full">
                 <!-- Tab panel, show/hide based on tab state. -->
                 <div id="tabs-2-panel-1" aria-labelledby="tabs-2-tab-1" role="tabpanel" tabindex="0">
-                    <img src={product?.image} alt="Angled front view with bag zipped and handles upright." class="h-full w-full object-cover object-center sm:rounded">
+                    <img src={product?.image} alt="Angled front view with bag zipped and handles upright." class="h-full w-full object-cover object-center sm:rounded" loading="lazy" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
                 </div>
 
                 <!-- More images... -->
@@ -95,14 +94,15 @@
 
             <!-- Colors -->
             <div class="flex mt-6 space-x-4">
-                <h3 class="text-sm">Color</h3>
-
-                <div class="bg-[#181A1B] p-2 rounded-md">
+                <div class="bg-[#181A1B] py-2 px-4  rounded-md">
                     <fieldset>
                         <legend class="sr-only">Product color {product?.color}</legend>
-                        <div class="flex items-center">
-                            <span id="color-choice-0-label" class="sr-only">{product?.color}</span>
-                            <span aria-hidden="true" class="h-8 w-8 rounded-full border border-black border-opacity-10" style="background-color: {product?.color};"></span>
+                        <div class="flex">
+                            <div class="flex-1 flex flex-col space-y-2">
+                                <h3 class="text-sm">Color</h3>
+                                <span id="color-choice-0-label" class="sr-only">{product?.color}</span>
+                                <span aria-hidden="true" class="h-8 w-8 rounded-full border border-black border-opacity-10" style="background-color: {product?.color};"></span>
+                            </div>
                         </div>
                     </fieldset>
                 </div>

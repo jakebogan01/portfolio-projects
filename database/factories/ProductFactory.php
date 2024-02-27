@@ -24,9 +24,9 @@ class ProductFactory extends Factory
         return [
             'project_id' => random_int(1, 2),
             'category_id' => random_int(1, 4),
-            'title' => fake()->sentence(),
+            'title' => fake()->sentence(4),
             'slug' => fake()->unique()->slug(),
-            'description' => fake()->paragraphs(6, true),
+            'description' => fake()->paragraphs(3, true),
             'image' => 'https://picsum.photos/500.jpg',
             'images' => [
                 'https://picsum.photos/500.jpg',
