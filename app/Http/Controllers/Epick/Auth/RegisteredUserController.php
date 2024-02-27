@@ -44,7 +44,7 @@ class RegisteredUserController extends Controller
         ]);
 
         if (User::where('email', $request->email)->where('project_id', config('enums.projects')['epick'])->exists()) {
-            return redirect()->route('epick.home')->with('message', 'This email is already taken!');
+            return redirect()->route('epick.home')->with('error', 'This email is already taken!');
         }
 
         $user = User::create([
@@ -58,6 +58,6 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect('/epick')->with('success', 'Welcome to Epick');
+        return redirect()->route('epick.home')->with('success', 'Welcome, you are now registered!');
     }
 }

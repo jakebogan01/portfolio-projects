@@ -11,8 +11,9 @@
     import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
     import ShoeBanner from "@/Components/Epick/Home/ShoeBanner.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
+    import Notification from "@/Components/Epick/Global/Notification.svelte";
     /* svelte-ignore unused-export-let */
-    export let cartQuantity, featuredProducts;
+    export let cartQuantity, featuredProducts, flash;
     $: console.log('featured products', featuredProducts)
 </script>
 
@@ -103,6 +104,8 @@
         </div>
     </section>
 </main>
+
+<Notification {flash} />
 
 <!--{#if cartQuantity?.quantity > 0}-->
 <!--    <a href="/epick/checkout" use:inertia>-->

@@ -7,8 +7,9 @@
     import Product from "@/Components/Epick/Global/Products/Product.svelte";
     import ShortCut from "@/Components/Epick/Global/Search/ShortCut.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
+    import Notification from "@/Components/Epick/Global/Notification.svelte";
     /* svelte-ignore unused-export-let */
-    export let product;
+    export let product, flash;
 </script>
 
 <svelte:head>
@@ -44,3 +45,5 @@
         </section>
     </div>
 </div>
+
+<Notification {flash} />

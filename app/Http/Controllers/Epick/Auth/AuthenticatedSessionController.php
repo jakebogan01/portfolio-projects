@@ -41,12 +41,12 @@ class AuthenticatedSessionController extends Controller
             Auth::guard('web')->logout();
             $request->session()->invalidate();
             $request->session()->regenerateToken();
-            return redirect()->route('epick.home')->with('error', 'You are not authorized to access this project');
+            return redirect()->route('epick.home')->with('error', 'You are not authorized to access this project!');
         }
 
         $request->session()->regenerate();
 
-        return redirect()->route('epick.home')->with('success', 'Welcome to Epick');
+        return redirect()->route('epick.home')->with('success', 'Welcome, you are now logged in!');
     }
 
     /**
@@ -63,6 +63,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/epick');
+        return redirect()->route('epick.home')->with('success', 'You are now logged out!');
     }
 }

@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Epick;
 
-use App\Models\Category;
-use Illuminate\Database\Eloquent\Model;
 use Inertia\Inertia;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Application;
+use Illuminate\Database\Eloquent\Model;
 
 class ProductController extends Controller
 {
@@ -67,11 +67,11 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         if (!auth()->user()) {
-            return redirect()->route('epick.login')->with('message', 'Please login to add to cart!');
+            return redirect()->route('epick.login');
         }
 
         if (!Product::find($request->product['id'])) {
-            return redirect()->route('home')->with('message', 'Item not found!');
+            return redirect()->route('epick.home')->with('error', 'Item not found!');
         }
 
         if (auth()->user()->cart) {
@@ -94,7 +94,7 @@ class ProductController extends Controller
             ])->products()->attach($request->product['id'], ['quantity' => 1]);
         }
 
-        return redirect()->back()->with('message', 'Saved to cart!');
+        return redirect()->back()->with('success', 'Saved to cart!');
     }
 
     /**
@@ -103,7 +103,7 @@ class ProductController extends Controller
     public function show(Product $product, Request $request)
     {
         if ($product->project_id !== config('enums.projects')['epick']) {
-            redirect()->route('home');
+            redirect()->route('epick.home');
         }
         return Inertia::render('Projects/Epick/Products/Show', [
             'product' => [
@@ -145,7 +145,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         if (!auth()->user()->cart->products()->where('product_id', $product->id)->exists()) {
-            return redirect()->back()->with('message', 'Item not found in cart!');
+            return redirect()->route('epick.home')->with('error', 'Item not found in cart!');
         }
 
         $productPrice = (float) $product->price;
@@ -164,6 +164,6 @@ class ProductController extends Controller
             ]);
         }
 
-        return redirect()->route('epick.checkout')->with('message', 'Item removed from cart!');
+        return redirect()->route('epick.checkout')->with('success', 'Item removed from cart!');
     }
 }

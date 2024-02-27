@@ -4,8 +4,9 @@
 
 <script>
     import { Link, page, inertia, router } from "@inertiajs/svelte";
+    import Notification from "@/Components/Epick/Global/Notification.svelte";
     /* svelte-ignore unused-export-let */
-    export let canLogin, canRegister, cartQuantity;
+    export let canLogin, canRegister, cartQuantity, flash;
     $: shipping = (cartQuantity?.products.length > 0 && cartQuantity?.subtotal > 25) ? 25 : 0;
     $: taxes = cartQuantity?.products.length * 0.1 * cartQuantity?.subtotal;
     $: total = cartQuantity?.subtotal + shipping + taxes;
@@ -189,3 +190,5 @@
         </form>
     </section>
 </div>
+
+<Notification {flash} />

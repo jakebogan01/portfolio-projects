@@ -5,7 +5,7 @@
     import Footer from "@/Components/Epick/Global/Footer/Footer.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     /* svelte-ignore unused-export-let */
-    export let searchResults, searchFilters, flash, canLogin, canRegister, cartQuantity;
+    export let searchResults, searchFilters, canLogin, canRegister, cartQuantity;
 </script>
 
 <!--{#if flash.message}-->
