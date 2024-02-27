@@ -14,6 +14,9 @@ class CheckoutController extends Controller
      */
     public function __invoke(Request $request)
     {
+        if (!auth()->check()) {
+            return redirect()->route('epick.login');
+        }
         return Inertia::render('Projects/Epick/Checkout/Index', [
             'canLogin' => Route::has('epick.login'),
             'canRegister' => Route::has('epick.register'),

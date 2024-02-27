@@ -59,8 +59,6 @@
             {/await}
         </div>
     </section>
-
-    <CtaBanner />
 </main>
 
 <!--{#if cartQuantity?.quantity > 0}-->

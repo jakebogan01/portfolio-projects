@@ -18,7 +18,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Category $category)
+    public function index(Category $category, Request $request)
     {
         return Inertia::render('Projects/Epick/Products/Index', [
             'products' => Product::query()
@@ -49,6 +49,7 @@ class ProductController extends Controller
             'canRegister' => Route::has('epick.register'),
             'searchResults' => $this->getSearchResults()['searchResults'],
             'filters' => request()->only(['price', 'color', 'size', 'gender', 'age', 'style', 'brand', 'shape', 'rating']),
+            'cartQuantity' => $this->getCartQuantity($request)['cartQuantity'],
         ]);
     }
 
@@ -65,6 +66,10 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+        if (!auth()->user()) {
+            return redirect()->route('epick.login')->with('message', 'Please login to add to cart!');
+        }
+
         if (!Product::find($request->product['id'])) {
             return redirect()->route('home')->with('message', 'Item not found!');
         }
@@ -95,10 +100,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Product $product)
+    public function show(Product $product, Request $request)
     {
         if ($product->project_id !== config('enums.projects')['epick']) {
-            abort(404);
+            redirect()->route('home');
         }
         return Inertia::render('Projects/Epick/Products/Show', [
             'product' => [
@@ -114,6 +119,7 @@ class ProductController extends Controller
             'searchResults' => $this->getSearchResults()['searchResults'],
             'canLogin' => Route::has('epick.login'),
             'canRegister' => Route::has('epick.register'),
+            'cartQuantity' => $this->getCartQuantity($request)['cartQuantity'],
         ]);
     }
 

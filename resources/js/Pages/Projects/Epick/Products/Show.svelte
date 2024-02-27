@@ -27,6 +27,7 @@
 <div class="sm:pt-16 mb-24">
     <div class="mx-auto max-w-2xl lg:max-w-none">
         <Product {product} />
+
         <section aria-labelledby="related-heading" class="mt-10 border-t border-[#36363b] px-4 py-10 sm:px-0">
             <h2 id="related-heading" class="text-xl font-bold">Related products</h2>
 
@@ -43,6 +44,3 @@
         </section>
     </div>
 </div>
-
-<CtaBanner />
-

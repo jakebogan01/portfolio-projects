@@ -13,7 +13,6 @@
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     /* svelte-ignore unused-export-let */
     export let cartQuantity, featuredProducts;
-    $: console.log(cartQuantity)
     $: console.log('featured products', featuredProducts)
 </script>
 
@@ -103,8 +102,6 @@
             {/each}
         </div>
     </section>
-
-    <CtaBanner />
 </main>
 
 <!--{#if cartQuantity?.quantity > 0}-->

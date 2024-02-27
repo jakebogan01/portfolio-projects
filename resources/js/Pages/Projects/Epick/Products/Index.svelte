@@ -116,5 +116,3 @@
         </section>
     </div>
 </div>
-
-<CtaBanner />

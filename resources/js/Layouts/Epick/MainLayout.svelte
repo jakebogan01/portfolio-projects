@@ -3,8 +3,9 @@
     import Search from "@/Components/Epick/Global/Search.svelte";
     import Nav from "@/Components/Epick/Global/Nav.svelte";
     import Footer from "@/Components/Epick/Global/Footer/Footer.svelte";
+    import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     /* svelte-ignore unused-export-let */
-    export let searchResults, searchFilters, flash, canLogin, canRegister;
+    export let searchResults, searchFilters, flash, canLogin, canRegister, cartQuantity;
 </script>
 
 <!--{#if flash.message}-->
@@ -52,9 +53,11 @@
 <!--<Search {searchFilters} {searchResults} />-->
 
 <div class="container sm:max-w-[1440px] overflow-hidden">
-    <Nav {canLogin} {canRegister}/>
+    <Nav {canLogin} {canRegister} {cartQuantity} />
 
     <slot />
+
+    <CtaBanner />
 
     <Footer />
 </div>
