@@ -10,16 +10,16 @@
     import Button from "@/Components/Epick/Global/Button.svelte";
     import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
     import ShoeBanner from "@/Components/Epick/Home/ShoeBanner.svelte";
-    import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     import Notification from "@/Components/Epick/Global/Notification.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
+    import MetaTags from "@/Components/Epick/Global/MetaTags.svelte";
     /* svelte-ignore unused-export-let */
     export let cartQuantity, featuredProducts, flash, searchResults, searchFilters;
-    $: console.log('featured products', featuredProducts)
 </script>
 
 <svelte:head>
     <title>Epick | Home</title>
+    <MetaTags />
 </svelte:head>
 
 <Search {searchResults} {searchFilters} />
