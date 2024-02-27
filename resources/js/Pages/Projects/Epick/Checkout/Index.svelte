@@ -5,8 +5,9 @@
 <script>
     import { Link, page, inertia, router } from "@inertiajs/svelte";
     import Notification from "@/Components/Epick/Global/Notification.svelte";
+    import Search from "@/Components/Epick/Global/Search/Search.svelte";
     /* svelte-ignore unused-export-let */
-    export let canLogin, canRegister, cartQuantity, flash;
+    export let canLogin, canRegister, cartQuantity, flash, searchResults, searchFilters;
     $: shipping = (cartQuantity?.products.length > 0 && cartQuantity?.subtotal > 25) ? 25 : 0;
     $: taxes = cartQuantity?.products.length * 0.1 * cartQuantity?.subtotal;
     $: total = cartQuantity?.subtotal + shipping + taxes;
@@ -29,6 +30,8 @@
 <svelte:head>
     <title>Epick | My Cart</title>
 </svelte:head>
+
+<Search {searchResults} {searchFilters} />
 
 <div class="relative mx-auto grid max-w-7xl grid-cols-1 gap-x-16 lg:grid-cols-2 lg:px-8 mt-24 mb-48">
     <h1 class="sr-only">Checkout</h1>

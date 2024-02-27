@@ -12,14 +12,17 @@
     import ShoeBanner from "@/Components/Epick/Home/ShoeBanner.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     import Notification from "@/Components/Epick/Global/Notification.svelte";
+    import Search from "@/Components/Epick/Global/Search/Search.svelte";
     /* svelte-ignore unused-export-let */
-    export let cartQuantity, featuredProducts, flash;
+    export let cartQuantity, featuredProducts, flash, searchResults, searchFilters;
     $: console.log('featured products', featuredProducts)
 </script>
 
 <svelte:head>
     <title>Epick | Home</title>
 </svelte:head>
+
+<Search {searchResults} {searchFilters} />
 
 <main>
     <Header />

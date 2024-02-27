@@ -9,8 +9,10 @@
     import ProductFilters from "@/Components/Epick/Products/ProductFilters.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     import ShortCut from "@/Components/Epick/Global/Search/ShortCut.svelte";
+    import Search from "@/Components/Epick/Global/Search/Search.svelte";
     /* svelte-ignore unused-export-let */
-    export let products, filters;
+    export let products, filters, searchResults, searchFilters;
+    let showSearch = false;
 
     let currentCategory = $page.url.split("/").pop();
     currentCategory = currentCategory.split("?")[0];
@@ -19,6 +21,8 @@
 <svelte:head>
     <title>Epick | {currentCategory}</title>
 </svelte:head>
+
+<Search {showSearch} {searchResults} {searchFilters} />
 
 <div class="sm:mb-20">
     <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
@@ -51,7 +55,7 @@
         <div class="flex items-baseline justify-between border-b border-[#36363b] pb-6 pt-24">
             <div class="flex items-center space-x-2 pointer-events-auto">
                 <h1 class="text-4xl tracking-tight capitalize">{currentCategory === 'clothes' ? 'clothing' : currentCategory}</h1>
-                <ShortCut />
+                <ShortCut on:click={()=>{showSearch = !showSearch}} />
             </div>
 
             <div class="flex items-center">

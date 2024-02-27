@@ -20,13 +20,13 @@
             <a use:inertia href="/epick">Home</a>
         </li>
         <li>
-            <a use:inertia href="#brands">Brands</a>
+            <a use:inertia={{replace: false}} href="#brands">Brands</a>
         </li>
         <li>
-            <a use:inertia href="#new">New</a>
+            <a use:inertia={{replace: false}} href="#new">New</a>
         </li>
         <li>
-            <a use:inertia href="#featured">Featured</a>
+            <a use:inertia={{replace: false}} href="#featured">Featured</a>
         </li>
         <li>
             <a use:inertia href="/epick/category" class="flex items-center justify-center bg-[#1E1E21] text-white text-sm md:text-base font-light font-montserrat py-4 px-14 w-full sm:w-max rounded md:rounded-lg">

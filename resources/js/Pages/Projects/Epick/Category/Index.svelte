@@ -6,19 +6,18 @@
     import { Link, page, inertia } from "@inertiajs/svelte";
     import Header from "@/Components/Epick/Global/Header.svelte";
     import GradientHeading from "@/Components/Epick/Global/GradientHeading.svelte";
-    import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
     import SearchButton from "@/Components/Epick/Global/Search/SearchButton.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
     /* svelte-ignore unused-export-let */
-    export let categories, cartQuantity;
-    $: console.log(cartQuantity)
+    export let categories, searchResults, searchFilters;
+    let showSearch = false;
 </script>
 
 <svelte:head>
     <title>Epick | Category</title>
 </svelte:head>
 
-<!--<Search />-->
+<Search {showSearch} {searchResults} {searchFilters} />
 
 <main>
     <div class="flex justify-center lg:justify-start max-w-[1198px] mx-auto">
@@ -33,7 +32,7 @@
             </span>
         </Header>
 
-        <SearchButton />
+        <SearchButton on:click={()=>{showSearch = !showSearch}} />
     </div>
 
     <section id="categories" class="my-28 md:mb-48">
@@ -60,11 +59,3 @@
         </div>
     </section>
 </main>
-
-<!--{#if cartQuantity?.quantity > 0}-->
-<!--    <a href="/epick/checkout" use:inertia>-->
-<!--        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">-->
-<!--            <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />-->
-<!--        </svg>-->
-<!--    </a>-->
-<!--{/if}-->

@@ -24,7 +24,7 @@
 {#each items as item}
     <li>
         <span class="block">
-            <a use:inertia={{replace: true}} href={item.link} class="text-[#BDC0C2] font-light text-[15px] sm:hover:text-white transition-colors">{item.title}</a>
+            <a use:inertia href={item.link} class="text-[#BDC0C2] font-light text-[15px] sm:hover:text-white transition-colors">{item.title}</a>
         </span>
     </li>
 {/each}
