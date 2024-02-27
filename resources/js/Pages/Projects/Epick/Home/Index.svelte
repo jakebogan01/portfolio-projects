@@ -42,13 +42,13 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="68.182" height="30" class="sm:hidden"><path fill="currentColor" d="M0 0v30h68.182V0Zm34.091 2.727C53.115 2.727 66.842 8.3 66.842 15S53.125 27.273 34.091 27.273 1.329 21.7 1.329 15 15.067 2.727 34.091 2.727Zm25.984 6.688a1.252 1.252 0 0 0-1.305 1.22.083.083 0 0 0-.011.083 1.311 1.311 0 0 0 2.621.069v-.067a1.278 1.278 0 0 0-1.257-1.3Zm-.088.248h.077a1.026 1.026 0 0 1 1.044 1.007v.048a1.046 1.046 0 1 1-2.091.059v-.067a1.009 1.009 0 0 1 .97-1.047ZM6.8 9.932a1.784 1.784 0 0 1 .146.855v8.235a1.789 1.789 0 0 1-.146.855h6.57a1.784 1.784 0 0 1-.146-.855v-8.235a1.787 1.787 0 0 1 .144-.855Zm9.428 0a1.789 1.789 0 0 1 .147.855v8.235a1.784 1.784 0 0 1-.147.855h6.038a1.787 1.787 0 0 1-.144-.855v-3.465s1.661 2.525 1.968 2.986a3.321 3.321 0 0 1 .586 1.334h7.247a5.609 5.609 0 0 1-.711-.855c-.375-.567-3.284-4.991-3.284-4.991s1.961-2.39 2.306-2.813a6.816 6.816 0 0 1 1.305-1.286h-6.3a3.6 3.6 0 0 1-.748 1.353c-.442.6-2.37 3.1-2.37 3.1v-3.6a1.781 1.781 0 0 1 .144-.855Zm16.742 0a1.781 1.781 0 0 1 .144.855v8.235a1.787 1.787 0 0 1-.144.855h11.657v-2.754a1.781 1.781 0 0 1-.855.144h-4.906v-1.306h4.714v-2.1h-4.714v-1.317h4.906a1.9 1.9 0 0 1 .855.136V9.932Zm26.6 0v1.574h.232v-.557h.336l.306.557h.258l-.336-.6a.525.525 0 0 0 .28-.461.5.5 0 0 0-.49-.509Zm-10.56.008a1.84 1.84 0 0 1-.173.858l-2.986 8.235a2.519 2.519 0 0 1-.45.855h4.98a1.946 1.946 0 0 1 .165-.855c.1-.288.2-.565.2-.565l.056-.154h3.638l.059.144.229.565a1.843 1.843 0 0 1 .192.855h6.317a2.4 2.4 0 0 1-.471-.855c-.211-.558-2.906-7.6-3.156-8.224a1.469 1.469 0 0 1-.184-.858Zm10.789.232h.346a.27.27 0 0 1 .258.288.264.264 0 0 1-.288.258v.011H59.8Zm-7.228 3.082a5.116 5.116 0 0 0 .192.653l.884 2.3h-2.079c.431-1.2.8-2.208.834-2.3a3.743 3.743 0 0 0 .173-.654Z"/></svg>
         </div>
 
-        <h2 class="font-montserrat text-7xl md:text-[105px] font-bold text-center">
+        <h2 class="font-montserrat text-7xl md:text-[105px] font-bold text-center" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;">
             <GradientHeading>Brands</GradientHeading>
         </h2>
 
         <div class="flex justify-between mt-[62px] 1440:mt-32 max-w-[500px] 1440:max-w-[565px] mx-auto">
             <div class="min-w-[180px]">
-                <ul class="space-y-7 font-montserrat text-xl md:text-2xl font-semibold">
+                <ul class="space-y-7 font-montserrat text-xl md:text-2xl font-semibold" role="list" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;">
                     <BrandListItem />
                 </ul>
             </div>
@@ -57,7 +57,7 @@
                     <span class="block">
                         <picture>
                             <source media="(min-width:1440px)" srcset="/images/epick/desktop/home/iwatch.png">
-                            <img src="/images/epick/mobile/home/iwatch.png" alt="Two Apple iWatch" class="w-full">
+                            <img src="/images/epick/mobile/home/iwatch.png" alt="Two Apple iWatch" class="w-full" role="presentation" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
                         </picture>
                     </span>
                 </div>
@@ -67,7 +67,7 @@
 
     <section id="new" class="bg-white py-14 md:py-20 shadow-[0px_0px_0px_100vmax_rgb(255,255,255)]" style="clip-path: inset(0 -100vmax);">
         <div class="max-w-[964px] mx-auto">
-            <h2 class="hidden md:inline-block 1440:hidden w-full font-montserrat text-7xl md:text-[105px] font-bold text-center">
+            <h2 class="hidden md:inline-block 1440:hidden w-full font-montserrat text-7xl md:text-[105px] font-bold text-center" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;">
                 <GradientHeading bkg="bg-gradient-to-t from-white to-black from-10%">New</GradientHeading>
             </h2>
             <div class="flex flex-col md:flex-row max-w-[771px] mx-auto">
@@ -77,7 +77,7 @@
                     </div>
                 </div>
                 <div class="max-w-[564px] md:max-w-[306px] mx-auto md:mt-[135px]">
-                    <h2 class="md:hidden 1440:inline-block font-montserrat text-7xl md:text-[105px] font-bold text-center 1440:text-left 1440:-ml-2 1440:mb-5">
+                    <h2 class="md:hidden 1440:inline-block font-montserrat text-7xl md:text-[105px] font-bold text-center 1440:text-left 1440:-ml-2 1440:mb-5" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;">
                         <GradientHeading bkg="bg-gradient-to-t from-white to-black from-10%">New</GradientHeading>
                     </h2>
                     <div class="relative md:hidden w-[288px] h-[247px] mx-auto mt-12 mb-8">
@@ -96,7 +96,7 @@
     </section>
 
     <section id="featured" class="my-28 md:my-48">
-        <h2 class="font-montserrat text-7xl md:text-[105px] font-bold text-center">
+        <h2 class="font-montserrat text-7xl md:text-[105px] font-bold text-center" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;">
             <GradientHeading>Featured</GradientHeading>
         </h2>
 
@@ -109,23 +109,3 @@
 </main>
 
 <Notification {flash} />
-
-<!--{#if cartQuantity?.quantity > 0}-->
-<!--    <a href="/epick/checkout" use:inertia>-->
-<!--        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">-->
-<!--            <path fill-rule="evenodd" d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z" clip-rule="evenodd" />-->
-<!--        </svg>-->
-<!--    </a>-->
-<!--{/if}-->
-
-<!--<div class="space-y-4 mt-5">-->
-<!--    {#await categories}-->
-<!--        <p>loading categories...</p>-->
-<!--    {:then categories}-->
-<!--        {#each categories as {id, name, slug}, i (id)}-->
-<!--            <div class="border border-gray-200 rounded p-4 my-2">-->
-<!--                <a use:inertia href="/epick/products/category/{slug}"><h2 class="text-2xl font-bold">{name}</h2></a>-->
-<!--            </div>-->
-<!--        {/each}-->
-<!--    {/await}-->
-<!--</div>-->

@@ -7,7 +7,7 @@
 <div class="flex flex-col justify-end bg-[#181A1B] px-2 py-2 rounded-lg h-[152px] w-[162px] md:w-[200px] md:h-[160px] mt-[100px]">
     <div class="flex justify-center">
         <div class="w-[124px] md:w-[130px] mb-4">
-            <img src="/images/epick/global/shirt.png" alt="headphone" class="w-full" />
+            <img src="/images/epick/global/shirt.png" alt="headphone" class="w-full" loading="lazy" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true" />
         </div>
     </div>
     <div class="flex justify-between">

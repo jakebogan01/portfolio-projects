@@ -11,6 +11,6 @@
                 <span slot="btnText" class="ml-2 sm:ml-4">Buy now</span>
             </Button>
         </div>
-        <img src="/images/epick/tablet/home/shopping-bags.png" alt="" class="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-[26%] -z-10" role="presentation">
+        <img src="/images/epick/tablet/home/shopping-bags.png" alt="" class="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-[26%] -z-10" role="presentation" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
     </div>
 </aside>
