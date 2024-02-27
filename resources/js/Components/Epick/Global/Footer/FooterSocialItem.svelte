@@ -1,4 +1,6 @@
 <script>
+    import { inertia } from "@inertiajs/svelte";
+
     let icons = [
         '<svg width="10" height="16" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="m8.723 9 .445-2.896H6.389V4.225c0-.792.388-1.564 1.633-1.564h1.263V.196S8.139 0 7.043 0C4.755 0 3.259 1.387 3.259 3.898v2.207H.716V9h2.543v7h3.13V9h2.334Z" /></svg>',
         '<svg width="16" height="14" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M15.762 2.291a6.218 6.218 0 0 1-1.783.489 3.113 3.113 0 0 0 1.365-1.719 6.2 6.2 0 0 1-1.972.754A3.107 3.107 0 0 0 8.08 4.648 8.82 8.82 0 0 1 1.68 1.403a3.104 3.104 0 0 0-.053 3.027c.24.45.59.835 1.014 1.12a3.098 3.098 0 0 1-1.406-.39v.04a3.107 3.107 0 0 0 2.491 3.046 3.128 3.128 0 0 1-1.403.053 3.107 3.107 0 0 0 2.902 2.156 6.232 6.232 0 0 1-4.599 1.287 8.783 8.783 0 0 0 4.76 1.395c5.713 0 8.837-4.732 8.837-8.836 0-.133-.004-.268-.01-.401a6.312 6.312 0 0 0 1.549-1.607l.001-.002Z" /></svg>',
@@ -9,7 +11,7 @@
 
 {#each icons as icon}
     <li class="block">
-        <a href="#" class="flex justify-center items-center text-[#F8F8F8] sm:hover:text-black bg-[#181A1B] sm:hover:bg-white rounded w-9 h-9 group sm:transform sm:hover:-translate-y-1 transition-all duration-700">
+        <a use:inertia={{replace: true}} href="/epick" class="flex justify-center items-center text-[#F8F8F8] sm:hover:text-black bg-[#181A1B] sm:hover:bg-white rounded w-9 h-9 group sm:transform sm:hover:-translate-y-1 transition-all duration-700">
             {@html icon}
         </a>
     </li>

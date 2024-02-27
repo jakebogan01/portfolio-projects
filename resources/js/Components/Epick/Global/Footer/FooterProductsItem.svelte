@@ -1,20 +1,22 @@
 <script>
+    import { inertia } from "@inertiajs/svelte";
+
     let items = [
         {
             title: 'Electronics',
-            link: '#'
+            link: '/epick/products/category/electronics'
         },
         {
             title: 'Clothes',
-            link: '#'
+            link: '/epick/products/category/clothes'
         },
         {
             title: 'Shoes',
-            link: '#'
+            link: '/epick/products/category/shoes'
         },
         {
             title: 'Furniture',
-            link: '#'
+            link: '/epick/products/category/furniture'
         },
     ]
 </script>
@@ -22,7 +24,7 @@
 {#each items as item}
     <li>
         <span class="block">
-            <a href={item.link} class="text-[#BDC0C2] font-light text-[15px] sm:hover:text-white transition-colors">{item.title}</a>
+            <a use:inertia={{onSuccess: page => {window.scrollTo({ top: 0, left: 0, behavior: 'instant' })}}} href={item.link} class="text-[#BDC0C2] font-light text-[15px] sm:hover:text-white transition-colors">{item.title}</a>
         </span>
     </li>
 {/each}
