@@ -60,9 +60,13 @@ class Controller extends BaseController
                                 'quantity' => $product->pivot->quantity,
                             ];
                         }),
+                        'subtotal' => $request->user()->cart->products->sum(function ($product) {
+                            return $product->price * $product->pivot->quantity;
+                        }),
                     ]
                     :
                     [
+                        'subtotal' => 0,
                         'quantity' => 0,
                         'products' => [],
                     ]

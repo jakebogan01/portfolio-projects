@@ -6,10 +6,12 @@
     import { Link, page, inertia, router } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
     export let canLogin, canRegister, cartQuantity;
-    $: console.log(cartQuantity)
+    $: shipping = (cartQuantity?.products.length > 0 && cartQuantity?.subtotal > 25) ? 25 : 0;
+    $: taxes = cartQuantity?.products.length * 0.1 * cartQuantity?.subtotal;
+    $: total = cartQuantity?.subtotal + shipping + taxes;
 
     const handleBuyProduct = (productId) => {
-        const product = cartQuantity.products.filter(product => product.id === productId);
+        const product = cartQuantity?.products.filter(product => product.id === productId);
 
         router.delete(`/epick/products/cart/remove/${product[0]?.id}`, {
             method: 'delete',
@@ -39,10 +41,12 @@
             {:then products}
                 <dl>
                     <dt class="text-sm font-medium text-gray-300">Amount due</dt>
-                    <dd class="mt-1 text-3xl font-bold tracking-tight text-white">$232.00</dd>
+                    <dd class="mt-1 text-3xl font-bold tracking-tight text-white">
+                        ${products.length > 0 ? Number.parseFloat(cartQuantity?.subtotal).toFixed(0) : '0.00'}
+                    </dd>
                 </dl>
 
-                <ul role="list" class="divide-y divide-white divide-opacity-10 text-sm font-medium">
+                <ul role="list" class="divide-y divide-white divide-opacity-10 text-sm font-medium mt-4">
                     {#each products as {id, title, price, image, quantity}, i (id)}
                         <li class="flex items-start space-x-4 py-6">
                             <img src={image} alt="Front of zip tote bag with white canvas, white handles, and black drawstring top." class="h-20 w-20 flex-none rounded-md object-cover object-center">
@@ -66,22 +70,22 @@
                 <dl class="space-y-6 border-t border-white border-opacity-10 pt-6 text-sm text-gray-300 font-medium">
                     <div class="flex items-center justify-between">
                         <dt>Subtotal</dt>
-                        <dd>$570.00</dd>
+                        <dd>${cartQuantity?.subtotal.toFixed(2)}</dd>
                     </div>
 
                     <div class="flex items-center justify-between">
                         <dt>Shipping</dt>
-                        <dd>$25.00</dd>
+                        <dd>{shipping === 0 ? 'Free' : `$${shipping}.00`}</dd>
                     </div>
 
                     <div class="flex items-center justify-between">
                         <dt>Taxes</dt>
-                        <dd>$47.60</dd>
+                        <dd>${taxes.toFixed(2)}</dd>
                     </div>
 
                     <div class="flex items-center justify-between border-t border-white border-opacity-10 pt-6 text-white">
                         <dt class="text-base">Total</dt>
-                        <dd class="text-base">$642.60</dd>
+                        <dd class="text-base">${total.toFixed(2)}</dd>
                     </div>
                 </dl>
             {/await}
