@@ -19,20 +19,23 @@
     </button>
     <ul class="hidden lg:flex items-center space-x-[57px] font-montserrat font-light">
         <li>
-            <a use:inertia href="/epick">Home</a>
+            <a use:inertia href="/epick" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:hover:w-full">Home</a>
         </li>
         <li>
-            <a use:inertia={{replace: false}} href="/epick#brands">Brands</a>
+            <a use:inertia={{replace: false}} href="/epick#brands" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:hover:w-full">Brands</a>
         </li>
         <li>
-            <a use:inertia={{replace: false}} href="/epick#new">New</a>
+            <a use:inertia={{replace: false}} href="/epick#new" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:hover:w-full">New</a>
         </li>
         <li>
-            <a use:inertia={{replace: false}} href="/epick#featured">Featured</a>
+            <a use:inertia={{replace: false}} href="/epick#featured" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:hover:w-full">Featured</a>
         </li>
         <li>
-            <a use:inertia href="/epick/category" class="flex items-center justify-center bg-[#1E1E21] text-white text-sm md:text-base font-light font-montserrat py-4 px-14 w-full sm:w-max rounded md:rounded-lg">
-                Shop
+            <a use:inertia href="/epick/category" class="relative group flex bg-[#1E1E21] min-w-[8.125rem] w-[130px] h-[51px] rounded-lg overflow-hidden border border-transparent sm:hover:border-[#3F3F45] transition-all duration-700" style="will-change: transform">
+                <span class="flex justify-center items-center h-full w-full sm:transform sm:group-hover:-translate-x-[14px] transition-transform cursor-pointer duration-700">Shop</span>
+                <span class="absolute top-0 -right-[30px] sm:group-hover:-right-0 h-full flex justify-center items-center px-1.5 bg-[#29292D] transition-all cursor-pointer duration-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[18px] h-[16px]"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" /></svg>
+                </span>
             </a>
         </li>
         <li>
