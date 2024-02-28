@@ -184,7 +184,7 @@
                 </div>
 
                 <div class="mt-10 flex justify-end border-t border-[#36363b] pt-6">
-                    <button type="submit" on:click={handleBuyProduct} class="flex items-center justify-center text-white text-sm md:text-base font-light font-montserrat bg-[#1E1E21] py-3.5 w-full rounded md:rounded-lg">
+                    <button type="submit" on:click={handleBuyProduct} class="flex items-center justify-center text-white text-sm md:text-base font-light font-montserrat bg-[#1E1E21] sm:hover:bg-white sm:hover:text-black sm:hover:font-medium py-3.5 w-full rounded md:rounded-lg transition-colors">
                         <span class="ml-2 md:ml-4">Pay now</span>
                     </button>
                 </div>
