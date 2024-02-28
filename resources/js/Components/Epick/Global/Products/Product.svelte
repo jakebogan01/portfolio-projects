@@ -18,6 +18,11 @@
             preserveScroll: true,
         });
     }
+
+    let currentImage = product?.image;
+    const switchImage = (img) => {
+        currentImage = img;
+    }
 </script>
 
 <!-- Product -->
@@ -31,7 +36,7 @@
             <div class="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <div class="grid grid-cols-4 gap-6" aria-orientation="horizontal" role="tablist">
                     {#each product?.images as image}
-                        <ProductImages {image} />
+                        <ProductImages {image} on:click={()=>{switchImage(image)}} />
                     {/each}
 
                     <!-- More images... -->
@@ -41,9 +46,8 @@
             <div class="aspect-h-1 aspect-w-1 w-full">
                 <!-- Tab panel, show/hide based on tab state. -->
                 <div id="tabs-2-panel-1" aria-labelledby="tabs-2-tab-1" role="tabpanel" tabindex="0">
-                    <img src={product?.image} alt="Angled front view with bag zipped and handles upright." class="h-full w-full object-cover object-center sm:rounded" loading="lazy" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
+                    <img src={currentImage} alt="Angled front view with bag zipped and handles upright." class="h-full w-full object-cover object-center sm:rounded" loading="lazy" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
                 </div>
-
                 <!-- More images... -->
             </div>
         </div>
