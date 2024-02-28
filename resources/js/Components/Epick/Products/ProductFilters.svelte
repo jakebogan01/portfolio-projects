@@ -133,7 +133,7 @@
                         {#each values as value (value.id)}
                             <div class="flex items-center">
                                 <input id={'checkbox'+value.id} name="color" bind:checked={value.checked} value={value.name} on:change={handleFilterRequest} type="checkbox" class="h-4 w-4 rounded border-gray-300 text-[#2780EA] focus:ring-[#2f85eb]">
-                                <label for={'checkbox'+value.id} class="ml-3 text-sm text-gray-300">{value.name}</label>
+                                <label for={'checkbox'+value.id} class="ml-3 text-sm text-gray-300 sm:hover:text-white transition-colors cursor-pointer">{value.name}</label>
                             </div>
                         {/each}
                     </div>
