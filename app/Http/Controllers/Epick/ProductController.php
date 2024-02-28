@@ -34,6 +34,7 @@ class ProductController extends Controller
                     'slug' => $product->slug,
                     'price' => $product->price,
                     'image' => $product->image,
+                    'is_featured' => $product->is_featured,
                     'project' => $product->project->name,
                     'category' => $product->category->name,
                     'color' => $product->color,

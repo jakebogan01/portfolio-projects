@@ -4,15 +4,15 @@
     let items = [
         {
             title: 'Brands',
-            link: '#brands'
+            link: '/epick#brands'
         },
         {
             title: 'New',
-            link: '#new'
+            link: '/epick#new'
         },
         {
             title: 'Featured',
-            link: '#featured'
+            link: '/epick#featured'
         },
         {
             title: 'Shop',

@@ -1,11 +1,14 @@
 <script>
     import { inertia } from "@inertiajs/svelte";
     /* svelte-ignore unused-export-let */
-    export let id, title, slug, image, price, project, category, color;
+    export let id, title, slug, image, price, project, category, color, is_featured;
 </script>
 
-<div class="flex flex-col justify-end bg-[#181A1B] px-2 py-2 rounded-lg h-[152px] w-[162px] md:w-[200px] md:h-[160px] mt-[100px]">
-    <div class="flex justify-center">
+<div class="relative flex flex-col justify-end bg-[#181A1B] px-2 py-2 rounded-lg h-[152px] w-[162px] md:w-[200px] md:h-[160px] mt-[100px]">
+    {#if is_featured}
+        <div class="ribbon bg-[#c3af3c] text-white font-roboto z-0">40%</div>
+    {/if}
+    <div class="relative flex justify-center z-10">
         <div class="w-[124px] md:w-[130px] mb-4">
             <img src="/images/epick/global/shirt.png" alt="headphone" class="w-full" loading="lazy" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true" />
         </div>
@@ -23,3 +26,21 @@
         </div>
     </div>
 </div>
+
+
+<style>
+    .ribbon {
+        --f: 10px; /* control the folded part*/
+        --r: 15px; /* control the ribbon shape */
+        --t: 10px; /* the top offset */
+
+        position: absolute;
+        inset: var(--t) calc(-1*var(--f)) auto auto;
+        padding: 0 8px var(--f) calc(8px + var(--r));
+        clip-path:
+                polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
+                calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
+                var(--r) calc(50% - var(--f)/2));
+        box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
+    }
+</style>
