@@ -8,11 +8,38 @@
     import ShortCut from "@/Components/Epick/Global/Search/ShortCut.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
     import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
-    import Carousel from 'svelte-carousel'
+    import Carousel from 'svelte-carousel';
+    import { onMount, onDestroy } from 'svelte';
     /* svelte-ignore unused-export-let */
     export let product, searchResults, searchFilters, relatedProducts;
     let showSearch = false;
     let carousel; // for calling methods of the carousel instance
+    let particlesToShow; // number of particles to show in the carousel
+    let windowWidth = window.innerWidth;
+
+    const handleResize = () => {
+        windowWidth = window.innerWidth;
+    };
+
+    onMount(() => {
+        window.addEventListener('resize', handleResize);
+    });
+
+    onDestroy(() => {
+        window.removeEventListener('resize', handleResize);
+    });
+
+    $: if (windowWidth < 500) {
+        particlesToShow = 1;
+    } else if (windowWidth < 640) {
+        particlesToShow = 2;
+    } else if (windowWidth < 1024) {
+        particlesToShow = 3;
+    } else if (windowWidth < 1280) {
+        particlesToShow = 4;
+    } else {
+        particlesToShow = 5;
+    }
 </script>
 
 <svelte:head>
@@ -31,7 +58,7 @@
 </div>
 
 <div class="sm:pt-16 mb-24">
-    <div class="mx-auto max-w-2xl lg:max-w-none">
+    <div class="mx-auto max-w-2xl md:max-w-none">
         <Product {product} />
 
         <section aria-labelledby="related-heading" class="mt-10 border-t border-[#36363b] px-4 py-10 sm:px-0">
@@ -39,7 +66,7 @@
 
             <div class="cursor-grab">
                 <Carousel
-                        particlesToShow={5}
+                        particlesToShow={particlesToShow}
                         particlesToScroll={1}
                         autoplay
                         autoplayDuration={10000}
