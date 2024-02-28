@@ -24,7 +24,7 @@
 
 <Search {searchResults} {searchFilters} />
 
-<main>
+<div>
     <Header />
 
     <section id="brands" class="mb-28 mt-36 md:my-48 1440:my-72">
@@ -106,6 +106,6 @@
             {/each}
         </div>
     </section>
-</main>
+</div>
 
 <Notification {flash} />

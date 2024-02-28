@@ -19,7 +19,7 @@
 
 <Search {showSearch} {searchResults} {searchFilters} />
 
-<main>
+<div>
     <div class="flex justify-center lg:justify-start max-w-[1198px] mx-auto">
         <Header addBtn={false} addImg={false}>
             <span slot="headingText">
@@ -58,4 +58,4 @@
             {/await}
         </div>
     </section>
-</main>
+</div>

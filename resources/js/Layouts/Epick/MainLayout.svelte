@@ -9,7 +9,9 @@
 <div class="container sm:max-w-[1440px] overflow-hidden">
     <Nav {canLogin} {canRegister} {cartQuantity} />
 
-    <slot />
+    <main>
+        <slot />
+    </main>
 
     <CtaBanner />
 
