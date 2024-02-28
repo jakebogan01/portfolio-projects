@@ -1,6 +1,11 @@
 <script>
     // svelte-ignore unused-export-let
     export let flash;
+    let msg = '';
+    $: flashMessage = flash?.success || flash?.error || flash?.warning;
+    $: if (flashMessage) {
+        msg = flashMessage;
+    }
 
     let type = '';
     let show = false;
@@ -10,9 +15,10 @@
         show = true;
         let timeout = setTimeout(() => {
             show = false;
+            msg = '';
             flash[flashType] = null;
             clearTimeout(timeout);
-        }, 3000);
+        }, 5000);
     }
 
     $: {
@@ -53,7 +59,7 @@
                         </div>
                         <div class="ml-3 w-0 flex-1 pt-0.5">
                             <p class="text-sm font-medium text-gray-900">{type}!</p>
-                            <p class="mt-1 text-sm text-gray-500">{flash?.success || flash?.error || flash?.warning}</p>
+                            <p class="mt-1 text-sm text-gray-500">{msg}</p>
                         </div>
                         <div class="ml-4 flex flex-shrink-0">
                             <button type="button" on:click={()=>{show = false}} class="inline-flex rounded-md bg-white text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">

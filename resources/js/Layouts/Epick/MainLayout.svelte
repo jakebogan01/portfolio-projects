@@ -2,8 +2,9 @@
     import Nav from "@/Components/Epick/Global/Nav.svelte";
     import Footer from "@/Components/Epick/Global/Footer/Footer.svelte";
     import CtaBanner from "@/Components/Epick/Global/CtaBanner.svelte";
+    import Notification from "@/Components/Epick/Global/Notification.svelte";
     /* svelte-ignore unused-export-let */
-    export let canLogin, canRegister, cartQuantity;
+    export let canLogin, canRegister, cartQuantity, flash;
 </script>
 
 <div class="container sm:max-w-[1440px] overflow-hidden">
@@ -16,4 +17,6 @@
     <CtaBanner />
 
     <Footer />
+
+    <Notification {flash} />
 </div>

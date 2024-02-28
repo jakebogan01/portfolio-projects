@@ -3,18 +3,16 @@
 </script>
 
 <script>
-    import { Link, page, inertia } from "@inertiajs/svelte";
     import Header from "@/Components/Epick/Global/Header.svelte";
     import GradientHeading from "@/Components/Epick/Global/GradientHeading.svelte";
     import BrandListItem from "@/Components/Epick/Home/BrandListItem.svelte";
     import Button from "@/Components/Epick/Global/Button.svelte";
     import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
     import ShoeBanner from "@/Components/Epick/Home/ShoeBanner.svelte";
-    import Notification from "@/Components/Epick/Global/Notification.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
     import MetaTags from "@/Components/Epick/Global/MetaTags.svelte";
     /* svelte-ignore unused-export-let */
-    export let cartQuantity, featuredProducts, flash, searchResults, searchFilters;
+    export let cartQuantity, featuredProducts, searchResults, searchFilters;
 </script>
 
 <svelte:head>
@@ -107,5 +105,3 @@
         </div>
     </section>
 </div>
-
-<Notification {flash} />

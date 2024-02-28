@@ -6,12 +6,11 @@
     import { inertia } from "@inertiajs/svelte";
     import Product from "@/Components/Epick/Global/Products/Product.svelte";
     import ShortCut from "@/Components/Epick/Global/Search/ShortCut.svelte";
-    import Notification from "@/Components/Epick/Global/Notification.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
     import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
     import Carousel from 'svelte-carousel'
     /* svelte-ignore unused-export-let */
-    export let product, flash, searchResults, searchFilters, relatedProducts;
+    export let product, searchResults, searchFilters, relatedProducts;
     let showSearch = false;
     let carousel; // for calling methods of the carousel instance
 </script>
@@ -58,5 +57,3 @@
         </section>
     </div>
 </div>
-
-<Notification {flash} />
