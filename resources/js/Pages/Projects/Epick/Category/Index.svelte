@@ -48,15 +48,15 @@
                 <p>loading categories...</p>
             {:then categories}
                 {#each categories as {id, name, slug}, i (id)}
-                    <a use:inertia href="/epick/products/category/{slug}" class="flex flex-col justify-end max-w-[260px] max-h-[220px] w-full mx-auto bg-[#181A1B] px-3 py-3 rounded-lg mt-28 sm:mt-20">
-                        <div class="flex justify-center">
+                    <a use:inertia href="/epick/products/category/{slug}" class="group flex flex-col justify-end max-w-[260px] max-h-[220px] w-full mx-auto bg-[#181A1B] px-3 py-3 rounded-lg mt-28 sm:mt-20">
+                        <div class="relative flex justify-center z-10 transform sm:group-hover:-translate-y-5 transition-transform duration-500">
                             <div class="w-[210px] mb-4">
                                 <img src={categoryImages[i]} alt={name} class="w-full" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true"/>
                             </div>
                         </div>
                         <div class="flex justify-between">
-                            <span class="block font-montserrat text-[#BDC0C2]">{name}</span>
-                            <div class="text-[#54585a]">
+                            <span class="block font-montserrat text-[#BDC0C2] sm:group-hover:text-white transition-colors duration-500">{name}</span>
+                            <div class="text-[#54585a] sm:group-hover:text-white transition-colors duration-500">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="24.802" height="24"><path fill="currentColor" d="M.528.528a1.8 1.8 0 0 0 0 2.549L9.451 12 .528 20.923a1.802 1.802 0 1 0 2.549 2.549l10.2-10.2a1.8 1.8 0 0 0 0-2.549L3.077.523A1.8 1.8 0 0 0 .528.528Z"/><path fill="currentColor" d="M11.528.528a1.8 1.8 0 0 0 0 2.549L20.451 12l-8.923 8.923a1.802 1.802 0 1 0 2.549 2.549l10.2-10.2a1.8 1.8 0 0 0 0-2.549l-10.2-10.2a1.8 1.8 0 0 0-2.549.005Z"/></svg>
                             </div>
                         </div>
