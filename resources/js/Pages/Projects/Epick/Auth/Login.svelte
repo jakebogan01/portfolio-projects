@@ -40,7 +40,7 @@
         </div>
     {/if}
 
-    <form on:submit|preventDefault={onSubmit}>
+    <form on:submit|preventDefault={onSubmit} class="text-black">
         <div>
             <BreezeLabel for="email" value="Email" />
             <BreezeInput
@@ -77,6 +77,11 @@
         </div>
 
         <div class="flex items-center justify-end mt-4">
+            <div>
+                <Link href="/epick/register" class="underline text-sm text-gray-600 hover:text-gray-900">
+                    Register
+                </Link>
+            </div>
             <BreezeButton
                 class="ml-4"
                 sclass:opacity-25={form.processing}

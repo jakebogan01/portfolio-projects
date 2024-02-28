@@ -36,7 +36,7 @@
 <BreezeGuestLayout>
     <BreezeValidationErrors class="mb-4" errors={err} />
 
-    <form on:submit|preventDefault={submit}>
+    <form on:submit|preventDefault={submit} class="text-black">
         <div>
             <BreezeLabel for="name" value="Name" />
             <BreezeInput
