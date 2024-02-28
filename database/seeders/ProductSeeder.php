@@ -16,7 +16,7 @@ class ProductSeeder extends Seeder
         Project::factory()->create([
             'name' => 'Epick',
         ])->products()->createMany(
-            Product::factory()->count(30)->make()->toArray()
+            Product::factory()->count(100)->make()->toArray()
         );
 
         Project::factory()->create([

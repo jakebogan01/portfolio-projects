@@ -27,6 +27,7 @@
         "@inertiajs/inertia-svelte": "^0.8.0",
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/svelte": "^1.0.10",
-        "@sveltejs/vite-plugin-svelte": "^2.4.5"
+        "@sveltejs/vite-plugin-svelte": "^2.4.5",
+        "svelte-carousel": "^1.0.25"
     }
 }

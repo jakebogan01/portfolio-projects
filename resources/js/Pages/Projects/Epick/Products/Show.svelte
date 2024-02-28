@@ -9,9 +9,11 @@
     import Notification from "@/Components/Epick/Global/Notification.svelte";
     import Search from "@/Components/Epick/Global/Search/Search.svelte";
     import ProductCard from "@/Components/Epick/Global/Products/ProductCard.svelte";
+    import Carousel from 'svelte-carousel'
     /* svelte-ignore unused-export-let */
-    export let product, flash, searchResults, searchFilters;
+    export let product, flash, searchResults, searchFilters, relatedProducts;
     let showSearch = false;
+    let carousel; // for calling methods of the carousel instance
 </script>
 
 <svelte:head>
@@ -36,11 +38,22 @@
         <section aria-labelledby="related-heading" class="mt-10 border-t border-[#36363b] px-4 py-10 sm:px-0">
             <h2 id="related-heading" class="text-xl font-bold">Related products</h2>
 
-            <div class="grid grid-cols-1 gap-y-12 sm:grid-cols-2 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
-                {#each Array(4) as _, i}
-                    <ProductCard />
-                {/each}
-                <!-- More products... -->
+            <div class="cursor-grab">
+                <Carousel
+                        particlesToShow={5}
+                        particlesToScroll={1}
+                        autoplay
+                        autoplayDuration={10000}
+                        arrows={true}
+                        dots={true}
+                        swiping={true}
+                        bind:this={carousel}>
+                        {#each relatedProducts as product (product?.id)}
+                            <div class="flex justify-center">
+                                <ProductCard {...product} />
+                            </div>
+                        {/each}
+                </Carousel>
             </div>
         </section>
     </div>

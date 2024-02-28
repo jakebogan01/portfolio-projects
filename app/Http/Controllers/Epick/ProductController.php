@@ -26,7 +26,7 @@ class ProductController extends Controller
                 ->where('project_id', config('enums.projects')['epick'])
                 ->filter(request(['price', 'color', 'size', 'gender', 'age', 'style', 'brand', 'shape', 'rating']))
                 ->latest()
-                ->simplePaginate(6)
+                ->simplePaginate(12)
                 ->withQueryString()
                 ->through(fn($product) => [
                     'id' => $product->id,
@@ -105,6 +105,30 @@ class ProductController extends Controller
         if ($product->project_id !== config('enums.projects')['epick']) {
             redirect()->route('epick.home');
         }
+
+        $categoryId = $product->category_id;
+        $projectId = $product->project_id;
+        $relatedProducts = Product::query()
+            ->where('category_id', $categoryId)
+            ->where('project_id', $projectId)
+            ->where('id', '!=', $product->id)
+            ->inRandomOrder()
+            ->limit(5)
+            ->get()
+            ->map(function ($product) {
+                return [
+                    'id' => $product->id,
+                    'title' => $product->title,
+                    'slug' => $product->slug,
+                    'price' => $product->price,
+                    'image' => $product->image,
+                    'project' => $product->project->name,
+                    'category' => $product->category->name,
+                    'color' => $product->color,
+                    'size' => $product->size
+                ];
+        });
+
         return Inertia::render('Projects/Epick/Products/Show', [
             'product' => [
                 'id' => $product->id,
@@ -120,6 +144,7 @@ class ProductController extends Controller
             'canLogin' => Route::has('epick.login'),
             'canRegister' => Route::has('epick.register'),
             'cartQuantity' => $this->getCartQuantity($request)['cartQuantity'],
+            'relatedProducts' => $relatedProducts,
         ]);
     }
 
