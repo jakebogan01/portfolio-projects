@@ -108,17 +108,6 @@
     }
 </script>
 
-<!--    <div class="w-[200px]">-->
-<!--        <label for="price" class="block text-sm font-medium leading-6 text-gray-900">Price</label>-->
-<!--        <select id="price" name="price" class="mt-2 block w-full rounded-md border-0 py-1.5 pl-3 pr-10 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6">-->
-<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: undefined, price: undefined, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">All</option>-->
-<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'high', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Highest Price</option>-->
-<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {price: 'low', color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Lowest Price</option>-->
-<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'popular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Most Popular</option>-->
-<!--            <option use:inertia="{{href: $page?.url, method: 'get', replace: true, preserveState: true, preserveScroll: true, data: {rating: 'unpopular', price: filters?.price, color: filters?.color, size: filters?.size, gender: filters?.gender, age: filters?.age, style: filters?.style, brand: filters?.brand, shape: filters?.shape}, only: ['products', 'filters']}}">Least Popular</option>-->
-<!--        </select>-->
-<!--    </div>-->
-
 {#each [colorValues, sizeValues, genderValues, ageValues, styleValues, brandValues, shapeValues] as values, i}
     {#if values.length > 0}
         <div class="border-b border-[#36363b] last:border-none py-6">

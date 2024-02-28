@@ -38,8 +38,6 @@ class Product extends Model
             $rating = $filters['rating'];
             if ($rating === 'popular') {
                 $query->orderBy('rating', 'desc');
-            } elseif ($rating === 'unpopular') {
-                $query->orderBy('rating', 'asc');
             }
         }
 

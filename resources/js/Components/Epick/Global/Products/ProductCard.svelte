@@ -13,7 +13,7 @@
     <div class="flex justify-between">
         <div class="flex flex-col font-roboto">
             <span class="sr-only">{title}</span>
-            <span class="block text-sm md:text-base">{color}</span>
+            <span class="block text-sm md:text-base truncate max-w-[130px]">{color}</span>
             <span class="block text-[#BDC0C2] font-light">${Number.parseFloat(price).toFixed(0)}</span>
         </div>
         <div class="flex items-end">
