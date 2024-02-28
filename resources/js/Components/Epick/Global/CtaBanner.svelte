@@ -7,8 +7,8 @@
         <div class="relative text-center sm:text-left z-0">
             <h3 class="font-roboto text-xl sm:text-2xl sm:group-hover:-translate-y-8 transition-transform duration-700 ease-in-out">Elevate your style, click and smile</h3>
             <span class="inline-block text-[#A3A6A7] text-base pb-1 sm:group-hover:-translate-y-8 transition-transform duration-700 ease-in-out delay-100">Buy Now, up to 40% off.</span>
-            <Button bkg="bg-[#0F0F10]" src="/epick/products/category/clothes">
-                <span slot="btnText" class="ml-2 sm:ml-4 relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:group-hover:w-full">Buy now</span>
+            <Button bkg="bg-[#0F0F10] sm:group-hover:bg-white sm:group-hover:text-black duration-500" src="/epick/products/category/clothes">
+                <span slot="btnText" class="ml-2 sm:ml-4">Buy now</span>
             </Button>
         </div>
         <img src="/images/epick/tablet/home/shopping-bags.png" alt="" class="hidden sm:block absolute right-0 top-1/2 -translate-y-1/2 w-[26%] -z-10" role="presentation" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
