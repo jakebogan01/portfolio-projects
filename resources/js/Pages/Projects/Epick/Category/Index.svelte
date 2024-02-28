@@ -11,6 +11,13 @@
     /* svelte-ignore unused-export-let */
     export let categories, searchResults, searchFilters;
     let showSearch = false;
+
+    const categoryImages = [
+        '/images/epick/mobile/category/iphone.png',
+        '/images/epick/mobile/category/shirt.png',
+        '/images/epick/mobile/category/shoe.png',
+        '/images/epick/mobile/category/chair.png',
+    ]
 </script>
 
 <svelte:head>
@@ -44,7 +51,7 @@
                     <a use:inertia href="/epick/products/category/{slug}" class="flex flex-col justify-end max-w-[260px] max-h-[220px] w-full mx-auto bg-[#181A1B] px-3 py-3 rounded-lg mt-28 sm:mt-20">
                         <div class="flex justify-center">
                             <div class="w-[210px] mb-4">
-                                <img src="/images/epick/mobile/category/clothes.png" alt={name} class="w-full" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true"/>
+                                <img src={categoryImages[i]} alt={name} class="w-full" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true"/>
                             </div>
                         </div>
                         <div class="flex justify-between">
