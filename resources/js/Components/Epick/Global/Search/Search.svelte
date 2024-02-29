@@ -1,6 +1,7 @@
 <script>
     import { inertia, page, router } from "@inertiajs/svelte";
-    import {onMount} from "svelte";
+    import { onMount } from "svelte";
+    import { fade } from "svelte/transition";
     /* svelte-ignore unused-export-let */
     export let showSearch = false, searchResults, searchFilters;
 
@@ -59,7 +60,7 @@
 </script>
 
 {#if showSearch}
-    <div class="fixed inset-0 z-50 flex items-start justify-center pt-16 sm:pt-24" role="dialog" aria-modal="true" data-headlessui-state={showSearch ? 'open' : 'close'}>
+    <div transition:fade={{ duration: 200 }} class="fixed inset-0 flex items-start justify-center pt-16 sm:pt-24" role="dialog" aria-modal="true" data-headlessui-state={showSearch ? 'open' : 'close'} style="z-index: 100;">
         <div on:keydown|self={()=>{}} on:click|self={hideSearch} class="fixed inset-0 bg-slate-900/25 backdrop-blur transition-opacity opacity-100"></div>
         <div class="relative w-full max-w-lg transform px-4 transition-all opacity-100 scale-100">
             <div class="overflow-hidden rounded-lg bg-white" data-headlessui-state={showSearch ? 'open' : 'close'}>

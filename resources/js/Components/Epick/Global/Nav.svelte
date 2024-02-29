@@ -1,5 +1,6 @@
 <script>
     import { inertia, Link, page } from "@inertiajs/svelte";
+    import { fade, fly } from "svelte/transition";
     /* svelte-ignore unused-export-let */
     export let canLogin, canRegister, cartQuantity;
 
@@ -67,40 +68,10 @@
 
 {#if showMobileMenu}
     <div class="relative z-50 lg:hidden" role="dialog" aria-modal="true">
-        <!--
-          Off-canvas menu backdrop, show/hide based on off-canvas menu state.
-
-          Entering: "transition-opacity ease-linear duration-300"
-            From: "opacity-0"
-            To: "opacity-100"
-          Leaving: "transition-opacity ease-linear duration-300"
-            From: "opacity-100"
-            To: "opacity-0"
-        -->
-        <div class="fixed inset-0 bg-gray-900/80"></div>
+        <div transition:fade class="fixed inset-0 bg-gray-900/80"></div>
 
         <div class="fixed inset-0 flex">
-            <!--
-              Off-canvas menu, show/hide based on off-canvas menu state.
-
-              Entering: "transition ease-in-out duration-300 transform"
-                From: "-translate-x-full"
-                To: "translate-x-0"
-              Leaving: "transition ease-in-out duration-300 transform"
-                From: "translate-x-0"
-                To: "-translate-x-full"
-            -->
             <div class="relative mr-16 flex w-full max-w-xs flex-1">
-                <!--
-                  Close button, show/hide based on off-canvas menu state.
-
-                  Entering: "ease-in-out duration-300"
-                    From: "opacity-0"
-                    To: "opacity-100"
-                  Leaving: "ease-in-out duration-300"
-                    From: "opacity-100"
-                    To: "opacity-0"
-                -->
                 <div class="absolute left-full top-0 flex w-16 justify-center pt-5">
                     <button type="button" on:click={()=>{showMobileMenu = false}} class="-m-2.5 p-2.5">
                         <span class="sr-only">Close sidebar</span>
@@ -111,7 +82,7 @@
                 </div>
 
                 <!-- Sidebar component, swap this element with another sidebar if you like -->
-                <div class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#0F0F10] px-6 pb-4">
+                <div transition:fly={{ delay: 300, duration: 300, x: -320, opacity: 0 }} class="flex grow flex-col gap-y-5 overflow-y-auto bg-[#0F0F10] px-6 pb-4">
                     <div class="flex h-16 shrink-0 items-center">
                         <a use:inertia href="/epick" on:click={()=>{showMobileMenu = false}} class="inline-block">
                             <span class="sr-only">Epick</span>
