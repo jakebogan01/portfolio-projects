@@ -13,6 +13,26 @@
     import MetaTags from "@/Components/Epick/Global/MetaTags.svelte";
     /* svelte-ignore unused-export-let */
     export let cartQuantity, featuredProducts, searchResults, searchFilters;
+
+    import { onMount } from "svelte";
+    import { gsap } from "gsap/dist/gsap";
+    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+    let el4;
+
+    onMount(()=>{
+        gsap.to(el4, {
+            scrollTrigger: {
+                trigger: el4,
+                markers: false,
+                scrub: 2,
+                end: "bottom 70%",
+            },
+            translateX: 0,
+            opacity: 1,
+        });
+    });
 </script>
 
 <svelte:head>
@@ -52,7 +72,7 @@
             </div>
             <div class="flex items-center">
                 <div class="min-w-[240px] md:max-w-[300px] 1440:max-w-[360px] transform md:translate-x-12">
-                    <span class="block">
+                    <span bind:this={el4} class="block transform translate-x-[100px] opacity-0">
                         <picture>
                             <source media="(min-width:1440px)" srcset="/images/epick/desktop/home/iwatch.png">
                             <img src="/images/epick/mobile/home/iwatch.png" alt="Two Apple iWatch" class="w-full" role="presentation" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">

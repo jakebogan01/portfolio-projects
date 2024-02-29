@@ -1,17 +1,35 @@
 <script>
+    import { onMount } from "svelte";
+    import { gsap } from "gsap/dist/gsap";
+    import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
     import Button from "@/Components/Epick/Global/Button.svelte";
     import GradientHeading from "@/Components/Epick/Global/GradientHeading.svelte";
+
+    gsap.registerPlugin(ScrollTrigger);
+    let el1;
+
     /* svelte-ignore unused-export-let */
     export let addBtn = true, addImg = true;
+
+    onMount(()=>{
+        gsap.to(el1, {
+            scrollTrigger: {
+                trigger: el1,
+                markers: false,
+                scrub: 2,
+            },
+            y: 200,
+        });
+    });
 </script>
 
 <header class="flex text-white mt-[107px]">
     {#if addImg}
-        <div class="1440:relative w-0 1440:w-full">
+        <div bind:this={el1} class="1440:relative w-0 1440:w-full">
             <picture>
                 <source media="(min-width:1440px)" srcset="/images/epick/desktop/home/banner-headphones.png">
                 <source media="(min-width:640px)" srcset="/images/epick/tablet/home/banner-headphones.png">
-                <img src="/images/epick/mobile/home/banner-headphones.png" alt="" class="absolute -top-56 md:-top-[288px] -1440:top-[329] right-[5dvw] md:left-1/4 1440:right-20 sm:max-w-[219px] md:max-w-[320px] -z-10" role="presentation" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
+                <img src="/images/epick/mobile/home/banner-headphones.png" alt="" class="absolute -top-56 md:-top-[288px] 1440:-top-[446px] right-[5dvw] md:left-1/2 1440:right-20 sm:max-w-[219px] md:max-w-[320px] -z-10" role="presentation" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">
             </picture>
         </div>
     {/if}

@@ -28,6 +28,7 @@
         "@inertiajs/progress": "^0.2.7",
         "@inertiajs/svelte": "^1.0.10",
         "@sveltejs/vite-plugin-svelte": "^2.4.5",
+        "gsap": "^3.12.5",
         "svelte-carousel": "^1.0.25"
     }
 }
