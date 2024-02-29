@@ -75,7 +75,7 @@
                         <ul class="max-h-[18.375rem] divide-y divide-slate-200 overflow-y-auto rounded-b-lg border-t border-slate-200 text-sm leading-6" role="listbox" data-headlessui-state="open">
                             {#each results as { id, title, slug, image, price }, i (id)}
                                 <li role="option" tabindex="-1" aria-selected="false" data-headlessui-state="">
-                                    <a use:inertia href="/epick/products/{slug}" class="flex items-center justify-between p-4">
+                                    <a use:inertia href="/epick/products/{slug}" on:click={()=>{showSearch = false}} class="flex items-center justify-between p-4">
                                         <img src={image} alt="" class="rounded-sm size-10 object-cover object-center">
                                         <span class="grid w-full max-w-[300px] text-right">
                                             <span class="whitespace-nowrap font-semibold text-slate-900 truncate">{title}</span>
