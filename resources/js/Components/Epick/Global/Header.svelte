@@ -12,13 +12,17 @@
     export let addBtn = true, addImg = true;
 
     onMount(()=>{
-        gsap.to(el1, {
-            scrollTrigger: {
-                trigger: el1,
-                markers: false,
-                scrub: 2,
-            },
-            y: 200,
+        let mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1440px)", () => {
+            gsap.to(el1, {
+                scrollTrigger: {
+                    trigger: el1,
+                    markers: false,
+                    scrub: 2,
+                },
+                y: 200,
+            });
         });
     });
 </script>

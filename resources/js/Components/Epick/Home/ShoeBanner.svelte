@@ -7,24 +7,28 @@
     let el2, el3;
 
     onMount(()=>{
-        gsap.to(el2, {
-            scrollTrigger: {
-                trigger: el2,
-                markers: false,
-                scrub: 2,
-                end: "bottom 30%",
-            },
-            x: 0,
-        });
+        let mm = gsap.matchMedia();
 
-        gsap.to(el3, {
-            scrollTrigger: {
-                trigger: el3,
-                markers: false,
-                end: "bottom 1%",
-                scrub: 2,
-            },
-            y: 0,
+        mm.add("(min-width: 1440px)", () => {
+            gsap.to(el2, {
+                scrollTrigger: {
+                    trigger: el2,
+                    markers: false,
+                    scrub: 2,
+                    end: "bottom 30%",
+                },
+                x: 0,
+            });
+
+            gsap.to(el3, {
+                scrollTrigger: {
+                    trigger: el3,
+                    markers: false,
+                    end: "bottom 1%",
+                    scrub: 2,
+                },
+                y: 0,
+            });
         });
     });
 </script>

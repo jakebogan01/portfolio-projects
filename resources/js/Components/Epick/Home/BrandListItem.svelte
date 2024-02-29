@@ -34,18 +34,22 @@
 
     onMount(()=>{
         brandListItems.forEach((item, i) => {
-            gsap.to(item.element, {
-                scrollTrigger: {
-                    trigger: item.element,
-                    markers: false,
-                    end: "bottom 70%",
-                    toggleActions: "restart none none reverse",
-                },
-                translateX: 0,
-                opacity: 1,
-                ease: "none",
-                duration: 0.3,
-                delay: i * 0.2,
+            let mm = gsap.matchMedia();
+
+            mm.add("(min-width: 1440px)", () => {
+                gsap.to(item.element, {
+                    scrollTrigger: {
+                        trigger: item.element,
+                        markers: false,
+                        end: "bottom 70%",
+                        toggleActions: "restart none none reverse",
+                    },
+                    translateX: 0,
+                    opacity: 1,
+                    ease: "none",
+                    duration: 0.3,
+                    delay: i * 0.2,
+                });
             });
         });
     });

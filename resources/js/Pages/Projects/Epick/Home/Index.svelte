@@ -22,15 +22,19 @@
     let el4;
 
     onMount(()=>{
-        gsap.to(el4, {
-            scrollTrigger: {
-                trigger: el4,
-                markers: false,
-                scrub: 2,
-                end: "bottom 70%",
-            },
-            translateX: 0,
-            opacity: 1,
+        let mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1440px)", () => {
+            gsap.to(el4, {
+                scrollTrigger: {
+                    trigger: el4,
+                    markers: false,
+                    scrub: 2,
+                    end: "bottom 70%",
+                },
+                translateX: 0,
+                opacity: 1,
+            });
         });
     });
 </script>
