@@ -22,16 +22,16 @@
     </button>
     <ul class="hidden lg:flex items-center space-x-[57px] font-montserrat font-light">
         <li>
-            <a use:inertia href="/epick" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full  before:duration-500">Home</a>
+            <a use:inertia href="/epick" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full before:duration-500">Home</a>
         </li>
         <li>
-            <a use:inertia={{replace: false}} href="/epick#brands" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full  before:duration-500">Brands</a>
+            <a use:inertia href="/epick#brands" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full before:duration-500">Brands</a>
         </li>
         <li>
-            <a use:inertia={{replace: false}} href="/epick#new" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full  before:duration-500">New</a>
+            <a use:inertia href="/epick#new" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full before:duration-500">New</a>
         </li>
         <li>
-            <a use:inertia={{replace: false}} href="/epick#featured" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full  before:duration-500">Featured</a>
+            <a use:inertia href="/epick#featured" class="relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:hover:w-full before:duration-500">Featured</a>
         </li>
         <li>
             <a use:inertia href="/epick/category" class="relative group flex bg-[#1E1E21] min-w-[8.125rem] w-[130px] h-[51px] rounded-lg overflow-hidden border border-transparent sm:hover:border-[#3F3F45] transition-all duration-700" style="will-change: transform">

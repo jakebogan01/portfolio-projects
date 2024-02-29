@@ -5,7 +5,7 @@
 
 <div class="container min-h-screen flex flex-col sm:justify-center items-center pt-6 sm:pt-0 bg-[#0f0f10]">
     <div>
-        <a href="/" use:inertia>
+        <a href="/epick" use:inertia>
             <BreezeApplicationLogo class="w-20 h-20 fill-current text-white" />
         </a>
     </div>
