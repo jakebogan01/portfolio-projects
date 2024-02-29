@@ -17,7 +17,6 @@ module.exports = {
             // padding: "1.25rem",
             padding: {
                 DEFAULT: '1.25rem',
-                '1500': '0',
             },
         },
         extend: {
