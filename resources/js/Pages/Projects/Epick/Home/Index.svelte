@@ -76,7 +76,7 @@
             </div>
             <div class="flex items-center">
                 <div class="min-w-[240px] md:max-w-[300px] 1440:max-w-[360px] transform md:translate-x-12">
-                    <span bind:this={el4} class="block transform translate-x-[100px] opacity-0">
+                    <span bind:this={el4} class="block transform 1440:translate-x-[100px] 1440:opacity-0">
                         <picture>
                             <source media="(min-width:1440px)" srcset="/images/epick/desktop/home/iwatch.png">
                             <img src="/images/epick/mobile/home/iwatch.png" alt="Two Apple iWatch" class="w-full" role="presentation" loading="eager" draggable="false" style="-webkit-user-drag: none; user-select: none; pointer-events: none;" aria-hidden="true">

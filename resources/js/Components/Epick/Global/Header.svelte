@@ -29,7 +29,7 @@
 
 <header class="flex text-white mt-[107px]">
     {#if addImg}
-        <div bind:this={el1} class="1440:relative w-0 1440:w-full">
+        <div bind:this={el1} class="1440:relative w-0 1440:w-full transition-all duration-300">
             <picture>
                 <source media="(min-width:1440px)" srcset="/images/epick/desktop/home/banner-headphones.png">
                 <source media="(min-width:640px)" srcset="/images/epick/tablet/home/banner-headphones.png">
