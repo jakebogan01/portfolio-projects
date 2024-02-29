@@ -26,21 +26,3 @@
         </div>
     </div>
 </div>
-
-
-<style>
-    .ribbon {
-        --f: 10px; /* control the folded part*/
-        --r: 15px; /* control the ribbon shape */
-        --t: 10px; /* the top offset */
-
-        position: absolute;
-        inset: var(--t) calc(-1*var(--f)) auto auto;
-        padding: 0 8px var(--f) calc(8px + var(--r));
-        clip-path:
-                polygon(0 0,100% 0,100% calc(100% - var(--f)),calc(100% - var(--f)) 100%,
-                calc(100% - var(--f)) calc(100% - var(--f)),0 calc(100% - var(--f)),
-                var(--r) calc(50% - var(--f)/2));
-        box-shadow: 0 calc(-1*var(--f)) 0 inset #0005;
-    }
-</style>
