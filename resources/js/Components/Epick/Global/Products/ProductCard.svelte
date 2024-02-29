@@ -1,10 +1,11 @@
 <script>
     import { inertia } from "@inertiajs/svelte";
+    import { fly } from "svelte/transition";
     /* svelte-ignore unused-export-let */
     export let id, title, slug, image, price, project, category, color, is_featured;
 </script>
 
-<div class="group relative flex flex-col justify-end bg-[#181A1B] px-2 py-2 rounded-lg h-[152px] w-[162px] md:w-[200px] md:h-[160px] mt-[100px]">
+<div transition:fly={{ duration: 300, y: 20, opacity: 0  }} class="group relative flex flex-col justify-end bg-[#181A1B] px-2 py-2 rounded-lg h-[152px] w-[162px] md:w-[200px] md:h-[160px] mt-[100px]">
     {#if is_featured}
         <div class="ribbon bg-[#c3af3c] text-white font-roboto z-0">40%</div>
     {/if}
