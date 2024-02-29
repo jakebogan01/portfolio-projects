@@ -106,7 +106,7 @@
                     <div class="mt-6">
                         <label for="email-address" class="block text-sm font-medium text-gray-300">Email address</label>
                         <div class="mt-1">
-                            <input type="email" id="email-address" name="email-address" autocomplete="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                            <input type="email" id="email-address" name="email-address" autocomplete="email" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                         </div>
                     </div>
                 </div>
@@ -118,21 +118,21 @@
                         <div class="col-span-3 sm:col-span-4">
                             <label for="card-number" class="block text-sm font-medium text-gray-300">Card number</label>
                             <div class="mt-1">
-                                <input type="text" id="card-number" name="card-number" autocomplete="cc-number" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                <input type="number" inputmode="numeric" pattern="[0-9]+" id="card-number" name="card-number" autocomplete="cc-number" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                             </div>
                         </div>
 
                         <div class="col-span-2 sm:col-span-3">
                             <label for="expiration-date" class="block text-sm font-medium text-gray-300">Expiration date (MM/YY)</label>
                             <div class="mt-1">
-                                <input type="text" name="expiration-date" id="expiration-date" autocomplete="cc-exp" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                <input type="number" inputmode="numeric" pattern="[0-9]+" name="expiration-date" id="expiration-date" autocomplete="cc-exp" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                             </div>
                         </div>
 
                         <div>
                             <label for="cvc" class="block text-sm font-medium text-gray-300">CVC</label>
                             <div class="mt-1">
-                                <input type="text" name="cvc" id="cvc" autocomplete="csc" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                <input type="number" inputmode="numeric" pattern="[0-9]+" name="cvc" id="cvc" autocomplete="csc" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                             </div>
                         </div>
                     </div>
@@ -145,28 +145,28 @@
                         <div class="sm:col-span-3">
                             <label for="address" class="block text-sm font-medium text-gray-300">Address</label>
                             <div class="mt-1">
-                                <input type="text" id="address" name="address" autocomplete="street-address" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                <input type="text" id="address" name="address" autocomplete="street-address" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                             </div>
                         </div>
 
                         <div>
                             <label for="city" class="block text-sm font-medium text-gray-300">City</label>
                             <div class="mt-1">
-                                <input type="text" id="city" name="city" autocomplete="address-level2" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                <input type="text" id="city" name="city" autocomplete="address-level2" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                             </div>
                         </div>
 
                         <div>
                             <label for="region" class="block text-sm font-medium text-gray-300">State / Province</label>
                             <div class="mt-1">
-                                <input type="text" id="region" name="region" autocomplete="address-level1" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                <input type="text" id="region" name="region" autocomplete="address-level1" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                             </div>
                         </div>
 
                         <div>
                             <label for="postal-code" class="block text-sm font-medium text-gray-300">Postal code</label>
                             <div class="mt-1">
-                                <input type="text" id="postal-code" name="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm">
+                                <input type="number" inputmode="numeric" pattern="[0-9]+" id="postal-code" name="postal-code" autocomplete="postal-code" class="block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500 sm:text-sm text-gray-700">
                             </div>
                         </div>
                     </div>

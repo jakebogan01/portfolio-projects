@@ -115,9 +115,9 @@
 
             <form on:submit|preventDefault class="mt-6">
                 <div class="mt-10 flex">
-                    <button type="submit" on:click={handleBuyProduct} class="group flex items-center justify-center text-white text-sm md:text-base font-light font-montserrat bg-[#353536] sm:hover:bg-transparent py-3.5 max-w-xs w-full rounded md:rounded-lg transition-colors duration-300">
+                    <button type="submit" on:click={handleBuyProduct} class="group flex items-center justify-center text-white text-sm md:text-base font-light font-montserrat bg-[#353536] sm:hover:bg-transparent py-3.5 sm:max-w-xs w-full rounded md:rounded-lg transition-colors duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15.493" height="21.422"><g fill="none" stroke="currentColor" stroke-miterlimit="10"><path d="M11.7 6.1h3.294v14.822H.5V6.1h11.2Z"/><path d="M4.453 8.076V3.794a3.294 3.294 0 1 1 6.588 0v4.282"/></g></svg>
-                        <span class="ml-2 md:ml-4 relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:group-hover:w-full">Add to cart</span>
+                        <span class="ml-2 md:ml-4 relative before:content-[''] before:absolute before:-bottom-[2px] before:left-1/2 before:transform before:-translate-x-1/2 before:h-px before:w-0 before:bg-white before:transition-all before:sm:group-hover:w-full before:duration-500">Add to cart</span>
                     </button>
                 </div>
             </form>
@@ -128,24 +128,20 @@
                 <div class="divide-y divide-[#36363b] border-t border-[#36363b]">
                     <div>
                         <h3>
-                            <!-- Expand/collapse question button -->
                             <button type="button" on:click={()=>{showFeatures = !showFeatures}} class="group relative flex w-full items-center justify-between py-6 text-left" aria-controls="disclosure-1" aria-expanded="false">
-                                <!-- Open: "text-indigo-600", Closed: "text-gray-900" -->
-                                <span class="text-sm font-medium">Features</span>
+                                <span class="font-medium {showFeatures ? 'text-white' : 'text-gray-400'} sm:group-hover:text-white transition-colors">Features</span>
                                 <span class="ml-6 flex items-center">
                                     {#if showFeatures}
-                                        <!-- Open: "hidden", Closed: "block" -->
-                                        <svg class="block h-6 w-6 text-gray-400 sm:group-hover:text-gray-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
+                                        <svg class="block h-6 w-6 {showFeatures ? 'text-white' : 'text-gray-400'} sm:group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" /></svg>
                                     {:else}
-                                        <!-- Open: "block", Closed: "hidden" -->
-                                        <svg class="bock h-6 w-6 text-gray-400 sm:group-hover:text-gray-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
+                                        <svg class="bock h-6 w-6 {showFeatures ? 'text-white' : 'text-gray-400'} sm:group-hover:text-white transition-colors" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15" /></svg>
                                     {/if}
                                 </span>
                             </button>
                         </h3>
                         {#if showFeatures}
                             <div class="prose prose-sm pb-6" id="disclosure-1">
-                                <ul role="list" class="text-gray-300">
+                                <ul role="list" class="text-gray-300 text-base">
                                     <li>Multiple strap configurations</li>
                                     <li>Spacious interior with top zip</li>
                                     <li>Leather handle and tabs</li>

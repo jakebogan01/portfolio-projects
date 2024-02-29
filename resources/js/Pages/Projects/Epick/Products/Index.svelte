@@ -29,9 +29,9 @@
 <div class="relative sm:mb-20">
     {#if showSidebar}
         <div class="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-            <div transition:fade class="fixed inset-0 bg-black bg-opacity-25"></div>
+            <div transition:fade={{ duration: 300 }} class="fixed inset-0 bg-black bg-opacity-25"></div>
 
-            <div transition:fly={{ delay: 300, duration: 300, x: 320, opacity: 0 }} class="fixed inset-0 z-40 flex">
+            <div transition:fly={{ duration: 300, x: 320, opacity: 0 }} class="fixed inset-0 z-40 flex">
                 <div class="relative ml-auto flex h-full w-full max-w-xs flex-col overflow-y-auto bg-[#0F0F10] py-4 pb-12">
                     <div class="flex items-center justify-between px-4">
                         <h2 class="text-lg font-medium">Filters</h2>
@@ -72,8 +72,8 @@
                     </div>
 
                     {#if showFilters}
-                        <div transition:fade on:keydown={()=>{}} on:click|self={()=>{showFilters = false}} class="fixed inset-0 bg-black bg-opacity-25"></div>
-                        <div transition:fade class="absolute right-0 z-50 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
+                        <div transition:fade={{ duration: 200 }} on:keydown={()=>{}} on:click|self={()=>{showFilters = false}} class="fixed inset-0 bg-black bg-opacity-25"></div>
+                        <div transition:fade={{ duration: 200 }} class="absolute right-0 z-50 mt-2 w-40 origin-top-right rounded-md bg-white shadow-2xl ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="menu-button" tabindex="-1">
                             <div class="py-1" role="none" on:keydown={()=>{}} on:click={()=>{showFilters = false}}>
                                 <!--
                                   Active: "bg-gray-100", Not Active: ""
